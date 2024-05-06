@@ -6,7 +6,7 @@ keywords = {
     "first": ["first"],
     "last": ["last"],
     "name": ["full", "name"],
-    "address": ["address"], 
+    "address": ["address", "line"], 
     "city": ["city"],
     "state": ["state"],
     "zip": ["zip", "postal", "code"],
@@ -15,32 +15,37 @@ keywords = {
     "country_code": ["country", "code"], 
     "phone_number": ["phone", "number"],
     "phone_extension": ["phone", "extension"],
-}
-
-answers = {
-    "HDYHAU": "I",
-    "first": os.getenv("FIRST"),
-    "last": os.getenv("LAST"),
-    "name": os.getenv("NAME"),
-    "address": os.getenv("ADDRESS"), 
-    "city": os.getenv("CITY"),
-    "state": os.getenv("STATE"),
-    "zip": os.getenv("ZIP"),
-    "email": os.getenv("EMAIL"),
-    "phone_type": os.getenv("PHONE_TYPE"),
-    "country_code": os.getenv("COUNTRY_CODE"), 
-    "phone_number": os.getenv("PHONE_NUMBER"),
-    "phone_extension": "skip"
+    "school": ["school", "university"],
+    "degree": ["degree"],
+    "major": ["field", "major"],
+    "GPA": ["gpa"],
+    "from": ["from"],
+    "to": ["to"],
+    "linkedin": ["linkedin"],
+    "website": ["website", "url"],
+    "resume": ["upload"],
+    "transcript": ["transcript"],
+    "skills": ["skills", "skill"]
 }
 
 def Response(prompt):
-    if prompt.endswith('*'):
-        prompt = prompt[:-1]
-
-    if prompt.endswith('?'):
-        prompt = prompt[:-1]
+    try:
+        if prompt.endswith('*'):
+            prompt = prompt[:-1]
+    except:
+        pass
+    
+    try:
+        if prompt.endswith('?'):
+            prompt = prompt[:-1]
+    except:
+        pass
 
     prompt = prompt.lower()
+
+    pattern = r'[^a-zA-Z0-9\s]'
+    prompt = re.sub(pattern, '', prompt)
+
     words = prompt.split()
 
     ret = "skip"
@@ -54,7 +59,7 @@ def Response(prompt):
         if (score > best):
             ret = key
             best = score
-    return answers[ret]
+    return ret
 
 
 
