@@ -29,7 +29,8 @@ answers = {
     "website": os.getenv("WEBSITE"),
     "resume": os.getenv("RESUME"),
     "transcript": os.getenv("TRANSCRIPT"),
-    "skills": os.getenv("SKILLS").split(),
+    "skills": os.getenv("SKILLS"),
+    "worked_for": "no"
 }
 
 chrome_options = Options()
@@ -39,7 +40,7 @@ chrome_options.add_argument('--remote-debugging-pipe')
 driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
-driver.get("https://simonsfoundation.wd1.myworkdayjobs.com/simonsfoundationcareers/job/160-Fifth-Avenue-New-York-NY/Summer-Research-Intern--Assistant--Associate-or-Pre-Doctoral---Polymathic-AI--Building-Foundation-Models-for-Science_R0001598")
+driver.get("https://areteir.wd1.myworkdayjobs.com/Arete-Careers/job/Virginia---Remote/Cyber-Operator-Intern_REQ-2024-961")
 
 driver.find_element(By.CSS_SELECTOR, '[data-uxi-element-id="Apply_adventureButton"]').click()
 driver.find_element(By.CSS_SELECTOR, '[data-automation-id="applyManually"]').click()
@@ -55,6 +56,10 @@ try:
     driver.find_element(By.CSS_SELECTOR, '[data-automation-id="email"]').send_keys(EMAIL)
     driver.find_element(By.CSS_SELECTOR, '[data-automation-id="password"]').send_keys(PASSWORD)
     driver.find_element(By.CSS_SELECTOR, '[data-automation-id="verifyPassword"]').send_keys(PASSWORD)
+    try:
+        driver.find_element(By.CSS_SELECTOR, '[data-automation-id="createAccountCheckbox"]').click()
+    except:
+        pass
     time.sleep(0.5)
     driver.find_element(By.CSS_SELECTOR, '[data-automation-id="click_filter"]').send_keys(Keys.ENTER)
 except:
@@ -62,27 +67,32 @@ except:
 
 time.sleep(3)
 submitted = []
+page = 1
 inputs = driver.find_elements(By.XPATH, '//*[starts-with(@id, "input-")]')
+resume_uploaded = False
 while True:
-    try:
-        driver.find_element(By.CSS_SELECTOR, '[data-automation-id="file-upload-input-ref"]').send_keys(answers["resume"])
-    except:
-        pass
+    if page == 2:
+        if resume_uploaded == False:
+            try:
+                driver.find_element(By.CSS_SELECTOR, '[data-automation-id="file-upload-input-ref"]').send_keys(answers["resume"])
+                resume_uploaded = True
+            except:
+                pass
+        try:
+            driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Education"]').send_keys(Keys.ENTER)
+        except:
+            pass
+        try:
+            driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Websites"]').send_keys(Keys.ENTER)
+        except:
+            pass
 
-    try:
-        driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Education"]').click()
-    except:
-        pass
-    try:
-        driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Websites"]').click()
-    except:
-        pass
     done = True
     
     for i in inputs:
         try:
             id = i.get_attribute("id")
-            if i.tag_name != "button" and i.tag_name != "input":
+            if i.get_attribute("aria-haspopup") != "listbox" and i.tag_name != "input" and i.get_attribute("data-uxi-widget-type") != "radioGroup":
                 continue
         except:
             inputs = driver.find_elements(By.XPATH, '//*[starts-with(@id, "input-")]')
@@ -130,6 +140,12 @@ while True:
         except:
             pass
 
+        try:
+            if i.get_attribute("data-uxi-widget-type") == "radioGroup":
+                input_type = "mc"
+        except:
+            pass
+
         submission = answers[response]
         if submission == "skip":
             submitted.append(response)
@@ -149,21 +165,27 @@ while True:
             else: 
                 i.send_keys(submission)
         elif input_type == "mc_search":
-            if type(submission) is list:
-                for s in submission:
-                    i.send_keys(s)
-                    i.send_keys(Keys.RETURN)
-                    i.send_keys(Keys.RETURN)
-            else:
-                i.send_keys(submission)
-                i.send_keys(Keys.RETURN)
-                i.send_keys(Keys.RETURN)
+            submission = submission.split()
+            for s in submission:
+                i.send_keys(s)
+                time.sleep(2)
+                i.send_keys(Keys.ENTER)
+                time.sleep(2)
+                i.send_keys(Keys.ENTER)
+        elif input_type == "mc":
+            choices = driver.find_elements(By.CSS_SELECTOR, "#" + id + " label")
+            for c in choices:
+                t = c.text.lower()
+                if t == submission:
+                    c.click()
+                    break
 
         #time.sleep(0.1)
         break
 
     if done:
         driver.find_element(By.CSS_SELECTOR, "[data-automation-id='bottom-navigation-next-button']").click()
+        page += 1
         time.sleep(2)
 
 time.sleep(200)
