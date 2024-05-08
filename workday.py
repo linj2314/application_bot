@@ -1,37 +1,8 @@
 from imports import *
 from response import Response
 
-load_dotenv()
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
-
-answers = {
-    "HDYHAU": "I",
-    "first": os.getenv("FIRST"),
-    "last": os.getenv("LAST"),
-    "name": os.getenv("NAME"),
-    "address": os.getenv("ADDRESS"), 
-    "city": os.getenv("CITY"),
-    "state": os.getenv("STATE"),
-    "zip": os.getenv("ZIP"),
-    "email": os.getenv("EMAIL"),
-    "phone_type": os.getenv("PHONE_TYPE"),
-    "country_code": os.getenv("COUNTRY_CODE"), 
-    "phone_number": os.getenv("PHONE_NUMBER"),
-    "phone_extension": "skip",
-    "school": os.getenv("SCHOOL"),
-    "degree": os.getenv("DEGREE"),
-    "major": os.getenv("MAJOR"),
-    "GPA": os.getenv("GPA"),
-    "from": os.getenv("FROM"),
-    "to": os.getenv("TO"),
-    "linkedin": os.getenv("LINKEDIN"),
-    "website": os.getenv("WEBSITE"),
-    "resume": os.getenv("RESUME"),
-    "transcript": os.getenv("TRANSCRIPT"),
-    "skills": os.getenv("SKILLS"),
-    "worked_for": "no"
-}
 
 chrome_options = Options()
 

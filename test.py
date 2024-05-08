@@ -22,13 +22,14 @@ keywords = {
     "to": ["to"],
     "linkedin": ["linkedin"],
     "website": ["website", "url"],
-    "resume": ["upload"],
+    "resume": ["resume"],
     "transcript": ["transcript"],
+    "cover_letter": ["cover", "letter"],
     "skills": ["skills", "skill", 'add'],
     "worked_for": ["worked", "for"]
 }
 
-prompt = 'School or University'
+prompt = 'resume-allowable-file-types'
 
 try:
     if prompt.endswith('*'):
@@ -45,9 +46,11 @@ except:
 prompt = prompt.lower()
 
 pattern = r'[^a-zA-Z0-9\s]'
-prompt = re.sub(pattern, '', prompt)
+prompt = re.sub(pattern, ' ', prompt)
 
 words = prompt.split()
+
+print(words)
 
 ret = "skip"
 best = 0

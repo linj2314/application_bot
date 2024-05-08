@@ -11,9 +11,9 @@ keywords = {
     "state": ["state"],
     "zip": ["zip", "postal", "code"],
     "email": ["email"],
+    "phone_number": ["phone", "number"],
     "phone_type": ["phone", "type"],
     "country_code": ["country", "code"], 
-    "phone_number": ["phone", "number"],
     "phone_extension": ["phone", "extension"],
     "school": ["school", "university"],
     "degree": ["degree"],
@@ -23,7 +23,8 @@ keywords = {
     "to": ["to"],
     "linkedin": ["linkedin"],
     "website": ["website", "url"],
-    "resume": ["upload"],
+    "resume": ["resume"],
+    "cover_letter": ["cover", "letter"],
     "transcript": ["transcript"],
     "skills": ["skills", "skill", 'add'],
     "worked_for": ["worked", "for"]
@@ -45,7 +46,7 @@ def Response(prompt):
     prompt = prompt.lower()
 
     pattern = r'[^a-zA-Z0-9\s]'
-    prompt = re.sub(pattern, '', prompt)
+    prompt = re.sub(pattern, ' ', prompt)
 
     words = prompt.split()
 
