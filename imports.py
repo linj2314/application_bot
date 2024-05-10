@@ -35,5 +35,9 @@ answers = {
     "cover_letter": os.getenv("COVER_LETTER"),
     "transcript": os.getenv("TRANSCRIPT"),
     "skills": os.getenv("SKILLS"),
-    "worked_for": "no"
+    "worked_for": os.getenv("WORKED_FOR"),
+    "us_authorization": os.getenv("US_AUTHORIZATION"),
+    "sponsorship": os.getenv("SPONSORSHIP"), 
+    "pronouns": os.getenv("PRONOUNS"),
+    "company": os.getenv("COMPANY")
 }

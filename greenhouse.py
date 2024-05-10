@@ -13,6 +13,7 @@ driver.get("https://boards.greenhouse.io/kininsurance/jobs/5170004004#app")
 text_inputs = driver.find_elements(By.CSS_SELECTOR, "input[type='text']:not([class])")
 dropdown_inputs = driver.find_elements(By.CSS_SELECTOR, "div[class='select2-container']")
 file_inputs = driver.find_elements(By.CSS_SELECTOR, "button[data-source='attach']")
+required_checkboxes = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox'][aria-required='true']")
 
 for t in text_inputs:
     prompt = t.get_attribute('id')
@@ -32,25 +33,26 @@ for t in text_inputs:
         pass
 
 for d in dropdown_inputs:
-    d.click()
-    d.find_element(By.XPATH, '..//input').send_keys(Keys.DOWN)
-    time.sleep(100)
-    '''
+    try:
+        d.find_element(By.XPATH, '..//span[@class="asterisk"]')
+    except:
+        continue
     prompt = d.find_element(By.XPATH, '..').text
     submission = answers[Response(prompt)]
-    options = d.find_element(By.XPATH, "following-sibling::*[1]").find_elements(By.XPATH, "./*")
+    d.click()
+    input = driver.find_element(By.CSS_SELECTOR, 'div[id="select2-drop"] div input')
+    options = driver.find_elements(By.CSS_SELECTOR, 'div[id="select2-drop"] ul li div')
     down = 0
     for o in options:
         choice = o.text
-        choice = choice.lower
-        if o.text == submission:
+        choice = choice.lower()
+        if choice == submission:
             break
         down += 1
-    d.click()
     for _ in range(down):
-        d.send_keys(Keys.DOWN)
-    d.send_keys(Keys.ENTER)
-    '''
+        input.send_keys(Keys.DOWN)
+    input.send_keys(Keys.ENTER)
+    
 
 for f in file_inputs:
     prompt = f.get_attribute('aria-describedby')
@@ -63,6 +65,9 @@ for f in file_inputs:
     subprocess.Popen(['xdotool', 'key', 'Return'])
     time.sleep(1)
 
-time.sleep(100)
+for r in required_checkboxes:
+    r.click()
+
+driver.find_element(By.CSS_SELECTOR, 'input[id="submit_app]').click()
 
 driver.quit()
