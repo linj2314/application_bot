@@ -15,6 +15,11 @@ driver.find_element(By.CSS_SELECTOR, "a[class*='postings-btn']").click()
 questions = driver.find_elements(By.CSS_SELECTOR, ".application-question")
 skip = ['name', 'email', 'phone_number', 'location', 'linkedin', 'github']
 
+company_info = driver.find_elements(By.TAG_NAME, "title").text
+company_info = company_info.split('-')
+company_name = company_info[0].strip()
+role_name = company_info[1].strip()
+
 for q in questions:
     required = False
     try:
@@ -26,7 +31,7 @@ for q in questions:
         continue
     prompt = q.find_element(By.CSS_SELECTOR, ".application-label").text
     if prompt == "Additional information":
-        #TODO: add cover letter here
+        q.send_keys(CL_Write(company_name, company_info))
         continue
     print(prompt)
     try:

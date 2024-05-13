@@ -85,6 +85,9 @@ def Response(prompt):
             best = score
     return ret
 
-def CL_Write(company_name, role_name):
-    with open("COVER_LETTER.txt", "w") as f:
-        f.write(CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5)
+def CL_Write(company_name, role_name, file = False):
+    if not file:
+        return CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5
+    else:
+        with open("COVER_LETTER.txt", "w") as f:
+            f.write(CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5)
