@@ -8,6 +8,10 @@ import os
 import time
 import re
 import subprocess
+from response import Response
+from AIResponse import AI
+from g4f.client import Client
+from g4f.Provider import DuckDuckGo
 load_dotenv()
 answers = {
     "HDYHAU": "I",
@@ -39,5 +43,7 @@ answers = {
     "us_authorization": os.getenv("US_AUTHORIZATION"),
     "sponsorship": os.getenv("SPONSORSHIP"), 
     "pronouns": os.getenv("PRONOUNS"),
-    "company": os.getenv("COMPANY")
+    "location": os.getenv("LOCATION"),
+    "company": os.getenv("COMPANY"),
+    "github": os.getenv("GITHUB")
 }

@@ -22,7 +22,7 @@ keywords = {
     "from": ["from"],
     "to": ["to"],
     "linkedin": ["linkedin"],
-    "website": ["website", "url", "portfolio"],
+    "website": ["website", "portfolio"],
     "resume": ["resume"],
     "cover_letter": ["cover", "letter"],
     "transcript": ["transcript"],
@@ -31,7 +31,9 @@ keywords = {
     "us_authorization": ['authorized', 'us'],
     "sponsorship": ['sponsorship'],
     "pronouns": ['pronouns'],
-    "company": ['company']
+    "location": ['location'],
+    "company": ['company'],
+    'github': ['github']
 }
 
 def Response(prompt):

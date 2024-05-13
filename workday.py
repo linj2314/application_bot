@@ -1,5 +1,4 @@
 from imports import *
-from response import Response
 
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")

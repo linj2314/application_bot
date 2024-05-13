@@ -1,5 +1,4 @@
 from imports import *
-from response import Response
 
 chrome_options = Options()
 
@@ -16,17 +15,21 @@ file_inputs = driver.find_elements(By.CSS_SELECTOR, "button[data-source='attach'
 required_checkboxes = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox'][aria-required='true']")
 
 for t in text_inputs:
-    prompt = t.get_attribute('id')
+    prompt = t.find_element(By.XPATH, '..').text
+    required = False
+    try:
+        t.find_element(By.XPATH, '..').find_element(By.CSS_SELECTOR, '.asterisk')
+        required = True
+    except:
+        pass
     print(prompt)
     response = Response(prompt)
     if response == 'skip':
-        try:
-            prompt = t.find_element(By.XPATH, '..').text
-            response = Response(prompt)
-            if response == 'skip':
-                continue
-        except:
-            pass
+        if required == True:
+            t.send_keys(AI(prompt))
+            continue
+        else:
+            continue
     try:
         t.send_keys(answers[response])
     except:

@@ -67,7 +67,7 @@ def Response(prompt):
             best = score
     return ret
 
-prompt = 'Are you authorized to work for any employer in the US?'
+prompt = 'Full name'
 print(Response(prompt))
 
 
