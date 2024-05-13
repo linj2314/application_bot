@@ -1,5 +1,4 @@
 from imports import *
-load_dotenv()
 
 keywords = {
     "HDYHAU": ["hear", "about", "us"],
@@ -36,6 +35,21 @@ keywords = {
     'github': ['github']
 }
 
+def AI(prompt, choices = []):
+    client = Client(provider = DuckDuckGo)
+    if not choices:
+        content = AI_PROMPT + '"' + prompt + '". Respond with only the answer and no other words or punctuation.'
+    else:
+        choices = '; '.join(choices)
+        content = AI_PROMPT + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
+    response = client.chat.completions.create(
+        model = "gpt-3.5-turbo",
+        messages=[{"role": "user", "content": content}]
+    )
+    str = response.choices[0].message.content
+    str = str.lower()
+    return str
+
 def Response(prompt):
     try:
         if prompt.endswith('*'):
@@ -71,6 +85,6 @@ def Response(prompt):
             best = score
     return ret
 
-
-
-    
+def CL_Write(company_name, role_name):
+    with open("COVER_LETTER.txt", "w") as f:
+        f.write(CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5)

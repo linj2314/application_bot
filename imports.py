@@ -8,8 +8,6 @@ import os
 import time
 import re
 import subprocess
-from response import Response
-from AIResponse import AI
 from g4f.client import Client
 from g4f.Provider import DuckDuckGo
 load_dotenv()
@@ -47,3 +45,9 @@ answers = {
     "company": os.getenv("COMPANY"),
     "github": os.getenv("GITHUB")
 }
+AI_PROMPT = os.getenv("AI_PROMPT")
+CL_1 = os.getenv("CL_1")
+CL_2 = os.getenv("CL_2")
+CL_3 = os.getenv("CL_3")
+CL_4 = os.getenv("CL_4")
+CL_5 = os.getenv("CL_5")
