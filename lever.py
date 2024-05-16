@@ -8,15 +8,15 @@ chrome_options.add_argument('--remote-debugging-pipe')
 driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
-driver.get("https://jobs.lever.co/divergent3d/c14a8e29-d59d-4422-8ac1-72526b0447f2")
+driver.get("https://jobs.lever.co/minesense/d6f69049-7a4a-4971-ada3-b896f46de361")
 
 driver.find_element(By.CSS_SELECTOR, "a[class*='postings-btn']").click()
 
 questions = driver.find_elements(By.CSS_SELECTOR, ".application-question")
 skip = ['name', 'email', 'phone_number', 'location', 'linkedin', 'github']
 
-company_info = driver.find_elements(By.TAG_NAME, "title").text
-company_info = company_info.split('-')
+company_info = driver.title
+company_info = company_info.split(' - ')
 company_name = company_info[0].strip()
 role_name = company_info[1].strip()
 
@@ -49,6 +49,7 @@ for q in questions:
             continue
     else:
         submission = answers[response]
+        
     print(submission)
     try:
         #MC input handler
