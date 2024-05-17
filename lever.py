@@ -1,12 +1,12 @@
 from imports import *
 from utilities import Response, AI, CL_Write
 
-chrome_options = Options()
+chrome_options = uc.ChromeOptions()
 
-chrome_options.add_argument('--remote-debugging-pipe')
-chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36")
+#chrome_options.add_argument('--remote-debugging-pipe')
+#chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36")
 
-driver = webdriver.Chrome(options=chrome_options)
+driver = uc.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
 driver.get("https://jobs.lever.co/minesense/d6f69049-7a4a-4971-ada3-b896f46de361")

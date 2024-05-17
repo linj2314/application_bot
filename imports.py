@@ -14,6 +14,7 @@ from g4f.Provider import Aichatos
 from g4f.Provider import Feedough
 from g4f.Provider import Ecosia
 from g4f.errors import RateLimitError
+import undetected_chromedriver as uc
 load_dotenv()
 answers = {
     "HDYHAU": "I",
