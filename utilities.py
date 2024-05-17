@@ -1,89 +1,93 @@
 from imports import *
 
 keywords = {
-    "HDYHAU": ["hear", "about", "us"],
-    "first": ["first"],
-    "last": ["last"],
-    "name": ["full", "name"],
-    "address": ["address", "line"], 
+    "HDYHAU": ["how did you hear about us?"],
+    "first": ["first name"],
+    "last": ["last name"],
+    "name": ["full name"],
+    "address": ["address line"], 
     "city": ["city"],
     "state": ["state"],
     "zip": ["zip", "postal", "code"],
     "email": ["email"],
-    "phone_number": ["phone", "number"],
+    "phone_number": ["phone number", "phone"],
     "phone_type": ["phone", "type"],
-    "country_code": ["country", "code"], 
-    "phone_extension": ["phone", "extension"],
+    "country_code": ["country code"], 
+    "phone_extension": ["phone extension"],
     "school": ["school", "university"],
     "degree": ["degree"],
     "major": ["field", "major"],
     "GPA": ["gpa"],
-    "from": ["from"],
-    "to": ["to"],
-    "linkedin": ["linkedin"],
-    "website": ["website", "portfolio"],
-    "resume": ["resume"],
+    "linkedin": ["linkedin", "linkedin url"],
+    "website": ["portfolio url", "website url"],
+    "resume": ["resume/cv"],
     "cover_letter": ["cover", "letter"],
     "transcript": ["transcript"],
     "skills": ["skills", "skill", 'add'],
-    "worked_for": ["worked", "for"],
-    "us_authorization": ['authorized', 'us'],
+    "us_authorization": ['are you authorized to work in the us?'],
     "sponsorship": ['sponsorship'],
     "pronouns": ['pronouns'],
-    "location": ['location'],
-    "company": ['company'],
-    'github': ['github']
+    'github': ['github url'],
+    'twitter': ['twitter', 'twitter url'],
+    "location": ['current location'],
+    "company": ['current company'],
+    "skip_fs": ['other website']
 }
 
-def AI(prompt, choices = []):
-    client = Client(provider = DuckDuckGo)
+providers = [DuckDuckGo, Ecosia, Aichatos, Feedough]
+provider_ind = 1
+
+def AI(prompt, choices = [], extras = []):
+    global AI_PROMPT
+    global provider_ind
+    ai_prompt = AI_PROMPT
+    client = Client(provider = providers[provider_ind])
+    for x in extras:
+        ai_prompt += x
     if not choices:
-        content = AI_PROMPT + '"' + prompt + '". Respond with only the answer and no other words or punctuation.'
+        content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". Respond with only the answer and no other words or punctuation.'
     else:
         choices = '; '.join(choices)
-        content = AI_PROMPT + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
-    response = client.chat.completions.create(
-        model = "gpt-3.5-turbo",
-        messages=[{"role": "user", "content": content}]
-    )
+        content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
+    try:
+        response = client.chat.completions.create(
+            model = "gpt-3.5-turbo",
+            messages=[{"role": "user", "content": content}]
+        )
+    except Exception as e:
+        if type(e) == RateLimitError:
+            provider_ind += 1
+            if provider_ind == len(providers):
+                provider_ind = 0
+            client = Client(provider = providers[provider_ind])
+            response = client.chat.completions.create(
+                model = "gpt-3.5-turbo",
+                messages=[{"role": "user", "content": content}]
+            )
+        else:
+            print(e)
+            exit()
+
     str = response.choices[0].message.content
-    str = str.lower()
     return str
 
 def Response(prompt):
-    try:
-        if prompt.endswith('*'):
-            prompt = prompt[:-1]
-    except:
-        pass
+    if prompt.endswith('*'):
+        prompt = prompt[:-1]
     
-    try:
-        if prompt.endswith('?'):
-            prompt = prompt[:-1]
-    except:
-        pass
+    if prompt.endswith('?'):
+        prompt = prompt[:-1]
 
     prompt = prompt.lower()
 
-    pattern = r'[^a-zA-Z0-9\s]'
-    prompt = re.sub(pattern, ' ', prompt)
-
-    words = prompt.split()
-
-    ret = "skip"
-    if len(words) == 0:
+    if len(prompt) == 0:
         return "skip"
-    best = 0
-    for key, value in keywords.items():
-        score = 0
-        for word in words:
-            if word in value:
-                score += 1
-        score = score / len(words)
-        if (score > best):
-            ret = key
-            best = score
-    return ret
+    
+    for word, list in keywords.items():
+        for l in list:
+            if l == prompt:
+                return word
+    return "skip"
 
 def CL_Write(company_name, role_name, file = False):
     if not file:

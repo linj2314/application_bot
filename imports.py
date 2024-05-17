@@ -10,6 +10,10 @@ import re
 import subprocess
 from g4f.client import Client
 from g4f.Provider import DuckDuckGo
+from g4f.Provider import Aichatos
+from g4f.Provider import Feedough
+from g4f.Provider import Ecosia
+from g4f.errors import RateLimitError
 load_dotenv()
 answers = {
     "HDYHAU": "I",
@@ -43,7 +47,8 @@ answers = {
     "pronouns": os.getenv("PRONOUNS"),
     "location": os.getenv("LOCATION"),
     "company": os.getenv("COMPANY"),
-    "github": os.getenv("GITHUB")
+    "github": os.getenv("GITHUB"),
+    "twitter": os.getenv("TWITTER")
 }
 AI_PROMPT = os.getenv("AI_PROMPT")
 CL_1 = os.getenv("CL_1")
