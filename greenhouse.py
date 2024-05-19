@@ -14,7 +14,6 @@ text_inputs = driver.find_elements(By.CSS_SELECTOR, "input[type='text']:not([cla
 dropdown_inputs_1 = driver.find_elements(By.CSS_SELECTOR, "div[class='select2-container']")
 dropdown_inputs_2 = driver.find_elements(By.TAG_NAME, 'select')
 file_inputs = driver.find_elements(By.CSS_SELECTOR, "button[data-source='attach']")
-required_checkboxes = driver.find_elements(By.CSS_SELECTOR, "input[type='checkbox'][aria-required='true']")
 checkbox_questions = driver.find_elements(By.CSS_SELECTOR, "label label:nth-of-type(1) input[type='checkbox']")
 
 skip_dropdown_2 = False
@@ -127,10 +126,13 @@ if not skip_dropdown_2:
                 ind += 1
             if not found:
                 sd.select_by_visible_text(AI(prompt, choices))
-
+                
 for c in checkbox_questions:
     question = c.find_element(By.XPATH, '..//..')
     prompt = question.text.split('\n')[0]
+    if clean_str(prompt) == "personal data":
+        c.click()
+        continue
     response = Response(prompt)
     if response == "skip_fs":
         continue
@@ -142,7 +144,7 @@ for c in checkbox_questions:
         submission = AI(prompt, choices)
         print(submission)
         for b in boxes:
-            if b.text == submission:
+            if b.text.strip() == submission:
                 b.find_element(By.CSS_SELECTOR, "input").click()
                 break
     else:
@@ -178,9 +180,6 @@ for f in file_inputs:
     time.sleep(0.5)
     subprocess.Popen(['xdotool', 'key', 'Return'])
     time.sleep(1)
-
-for r in required_checkboxes:
-    r.click()
 
 #driver.find_element(By.ID, 'submit_app').click()
 
