@@ -16,12 +16,12 @@ keywords = {
     "phone_extension": ["phone extension"],
     "school": ["school", "university"],
     "degree": ["degree"],
-    "major": ["field", "major"],
+    "major": ["field", "major", "discipline"],
     "GPA": ["gpa"],
-    "linkedin": ["linkedin", "linkedin url"],
-    "website": ["portfolio url", "website url"],
-    "resume": ["resume/cv"],
-    "cover_letter": ["cover", "letter"],
+    "linkedin": ["linkedin", "linkedin url", "linkedin profile"],
+    "website": ["portfolio url", "website url", "website"],
+    "resume": ["resume/cv", "resume-allowable-file-types"],
+    "cover_letter": ["cover letter", "cover_letter-allowable-file-types"],
     "transcript": ["transcript"],
     "skills": ["skills", "skill", 'add'],
     "us_authorization": ['are you authorized to work in the us?'],
@@ -31,7 +31,7 @@ keywords = {
     'twitter': ['twitter', 'twitter url'],
     "location": ['current location'],
     "company": ['current company'],
-    "skip_fs": ['other website']
+    "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status']
 }
 
 providers = [DuckDuckGo, Ecosia, Aichatos, Feedough]
@@ -72,13 +72,7 @@ def AI(prompt, choices = [], extras = []):
     return str
 
 def Response(prompt):
-    if prompt.endswith('*'):
-        prompt = prompt[:-1]
-    
-    if prompt.endswith('?'):
-        prompt = prompt[:-1]
-
-    prompt = prompt.lower()
+    prompt = clean_str(prompt)
 
     if len(prompt) == 0:
         return "skip"
@@ -95,3 +89,8 @@ def CL_Write(company_name, role_name, file = False):
     else:
         with open("COVER_LETTER.txt", "w") as f:
             f.write(CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5)
+
+def clean_str(str):
+    pattern = r'[\'\"?*]'
+    str = re.sub(pattern, ' ', str)
+    return str.lower().strip()

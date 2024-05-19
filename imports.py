@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 from dotenv import load_dotenv
 import os
 import time
@@ -49,7 +50,11 @@ answers = {
     "location": os.getenv("LOCATION"),
     "company": os.getenv("COMPANY"),
     "github": os.getenv("GITHUB"),
-    "twitter": os.getenv("TWITTER")
+    "twitter": os.getenv("TWITTER"),
+    "start_month": os.getenv("START_MONTH"),
+    "start_year": os.getenv("START_YEAR"),
+    "end_month": os.getenv("END_MONTH"),
+    "end_year": os.getenv("END_YEAR"),
 }
 AI_PROMPT = os.getenv("AI_PROMPT")
 CL_1 = os.getenv("CL_1")
