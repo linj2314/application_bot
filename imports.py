@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os
 import time
@@ -18,7 +19,7 @@ from g4f.errors import RateLimitError
 import undetected_chromedriver as uc
 load_dotenv()
 answers = {
-    "HDYHAU": "I",
+    "HDYHAU": "other",
     "first": os.getenv("FIRST"),
     "last": os.getenv("LAST"),
     "name": os.getenv("NAME"),
@@ -30,7 +31,6 @@ answers = {
     "phone_type": os.getenv("PHONE_TYPE"),
     "country_code": os.getenv("COUNTRY_CODE"), 
     "phone_number": os.getenv("PHONE_NUMBER"),
-    "phone_extension": "skip",
     "school": os.getenv("SCHOOL"),
     "degree": os.getenv("DEGREE"),
     "major": os.getenv("MAJOR"),
@@ -55,6 +55,7 @@ answers = {
     "start_year": os.getenv("START_YEAR"),
     "end_month": os.getenv("END_MONTH"),
     "end_year": os.getenv("END_YEAR"),
+    "country": os.getenv("COUNTRY")
 }
 AI_PROMPT = os.getenv("AI_PROMPT")
 CL_1 = os.getenv("CL_1")

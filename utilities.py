@@ -1,19 +1,19 @@
 from imports import *
 
 keywords = {
-    "HDYHAU": ["how did you hear about us?"],
+    "HDYHAU": ["how did you hear about us"],
     "first": ["first name"],
     "last": ["last name"],
     "name": ["full name"],
-    "address": ["address line"], 
+    "address": ["address line", "address line 1"], 
     "city": ["city"],
     "state": ["state"],
-    "zip": ["zip", "postal", "code"],
+    "country": ["country"],
+    "zip": ["zip", "postal code"],
     "email": ["email"],
     "phone_number": ["phone number", "phone"],
     "phone_type": ["phone", "type"],
-    "country_code": ["country code"], 
-    "phone_extension": ["phone extension"],
+    "country_code": ["country phone code"], 
     "school": ["school", "university"],
     "degree": ["degree"],
     "major": ["field", "major", "discipline"],
@@ -31,7 +31,7 @@ keywords = {
     'twitter': ['twitter', 'twitter url'],
     "location": ['current location'],
     "company": ['current company'],
-    "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status']
+    "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name']
 }
 
 providers = [DuckDuckGo, Ecosia, Aichatos, Feedough]
@@ -72,6 +72,10 @@ def AI(prompt, choices = [], extras = []):
     return str
 
 def Response(prompt):
+    if not prompt:
+        return "skip_fs"
+    
+    prompt = prompt.split('\n')[0]
     prompt = clean_str(prompt)
 
     if len(prompt) == 0:
@@ -89,8 +93,47 @@ def CL_Write(company_name, role_name, file = False):
     else:
         with open("COVER_LETTER.txt", "w") as f:
             f.write(CL_1 + company_name + CL_2 + role_name + CL_3 + company_name + CL_4 + company_name + CL_5)
+        f.close()
 
 def clean_str(str):
     pattern = r'[\'\"?*]'
     str = re.sub(pattern, ' ', str)
     return str.lower().strip()
+
+def link_scraper():
+    f1 = open("raw.txt", "r")
+    f2 = open("links.txt", "w")
+    str = f1.read()
+    pattern = r'<a.*?>'
+    tags = re.findall(pattern, str, re.DOTALL)
+
+    save = False
+    curr = ""
+    arr = []
+    for t in tags:
+        lines = t.splitlines()
+        for l in lines:
+            if l.endswith("="):
+                l = l[:-1]
+            for c in l:
+                if c == "'":
+                    if save:
+                        arr.append(curr)
+                        save = False
+                        curr = ""
+                    else:
+                        save = True
+                else:
+                    if save:
+                        curr += c
+
+    arr = arr[:-2]
+
+    i = 1
+    while i < len(arr):
+        f2.write(arr[i] + '\n')
+        i += 2
+
+
+    f1.close()
+    f2.close()
