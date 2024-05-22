@@ -14,10 +14,10 @@ keywords = {
     "phone_number": ["phone number", "phone"],
     "phone_type": ["phone", "type"],
     "country_code": ["country phone code"], 
-    "school": ["school", "university"],
+    "school": ["school", "university", "school or university"],
     "degree": ["degree"],
-    "major": ["field", "major", "discipline"],
-    "GPA": ["gpa"],
+    "major": ["field of study", "major", "discipline"],
+    "GPA": ["overall result (gpa)", "gpa"],
     "linkedin": ["linkedin", "linkedin url", "linkedin profile"],
     "website": ["portfolio url", "website url", "website"],
     "resume": ["resume/cv", "resume-allowable-file-types"],
@@ -31,6 +31,8 @@ keywords = {
     'twitter': ['twitter', 'twitter url'],
     "location": ['current location'],
     "company": ['current company'],
+    "START_YEAR": ['from'],
+    "END_YEAR": ['to', 'to (actual or expected)'],
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name']
 }
 
