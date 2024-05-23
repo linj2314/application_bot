@@ -39,6 +39,7 @@ except:
 time.sleep(3)
 
 page = 1
+year = False
 
 while True:
     if page == 1:
@@ -66,13 +67,46 @@ while True:
             driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='school']")
         except:
             driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Education"]').send_keys(Keys.ENTER)
-
     
     inputs = driver.find_elements(By.XPATH, '//*[starts-with(@id, "input-")]')
     for i in inputs:
+        try:
+            print(i.get_attribute("id"))
+        except StaleElementReferenceException:
+            continue
+    for i in inputs:
+        try:
+            _ = i.get_attribute("id")
+        except StaleElementReferenceException:
+            continue
+
         if page == 2:
             if i.get_attribute("data-automation-id") == "select-files":
                 driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='file-upload-input-ref']").send_keys(answers["resume"])
+                continue
+            if i.get_attribute('data-automation-id') == 'dateInputWrapper' or 'display' in i.get_attribute("id"):
+                continue
+            if 'dateSectionYear-input' in i.get_attribute("id"):
+                if not year:
+                    i.send_keys(answers["start_year"])
+                    year = True
+                    continue
+                else:
+                    i.send_keys(answers["end_year"])
+                    continue
+        
+        if page > 2:
+            if i.get_attribute("data-automation-id") == "agreementCheckbox":
+                driver.find_element(By.CSS_SELECTOR, "label[for='" + i.get_attribute("id") + "']").click()
+                continue
+            if i.get_attribute("aria-label") == "Day":
+                i.send_keys(datetime.today().strftime('%d'))
+                continue
+            elif i.get_attribute("aria-label") == "Month":
+                i.send_keys(datetime.today().strftime('%m'))
+                continue
+            elif i.get_attribute("aria-label") == "Year":
+                i.send_keys(datetime.today().strftime('%Y'))
                 continue
 
         try:
@@ -84,18 +118,26 @@ while True:
             except:
                 continue
 
+        #print(prompt)
+
         response = Response(prompt)
         if response in ["skip_fs", "country", "email"]:
             continue
 
         if i.get_attribute("aria-haspopup") == "listbox":
             if response == "skip":
-                submission = AI(prompt)
+                i.click()
+                choices = driver.find_element(By.CSS_SELECTOR, "ul[role='listbox']").find_elements(By.CSS_SELECTOR, 'li')
+                choices = choices[1:]
+                choices_list = []
+                for c in choices:
+                    choices_list.append(c.text)
+                submission = AI(prompt, choices_list)
             else:
                 submission = answers[response]
             if i.text == submission:
                 continue
-            i.send_keys(submission)
+            i.send_keys(submission + '\n')
         elif i.get_attribute("data-uxi-widget-type") == "selectinput":
             submission = answers[response]
             submission = submission.split(',')
@@ -122,14 +164,23 @@ while True:
                     driver.find_element(By.CSS_SELECTOR, "body").click()
                     c.click()
                     break
+        elif i.tag_name == 'fieldset':
+            #TODO implement fieldset handling (multiple choice but different format)
+            print("fieldset encountered")
+            exit()
         else:
             if response == "skip":
                 submission = AI(prompt)
             else:
                 submission = answers[response]
-            i.send_keys(Keys.CONTROL + "a" + Keys.BACK_SPACE)
-            i.send_keys(submission)
+            try:
+                i.send_keys(Keys.CONTROL + "a" + Keys.BACK_SPACE)
+                i.send_keys(submission)
+            except ElementNotInteractableException:
+                pass
     
+    time.sleep(1)
     driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='bottom-navigation-next-button']").click()
+    time.sleep(3)
     page += 1
 

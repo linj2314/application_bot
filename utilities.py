@@ -31,8 +31,10 @@ keywords = {
     'twitter': ['twitter', 'twitter url'],
     "location": ['current location'],
     "company": ['current company'],
-    "START_YEAR": ['from'],
-    "END_YEAR": ['to', 'to (actual or expected)'],
+    "start_year": ['from'],
+    "end_year": ['to', 'to (actual or expected)'],
+    "race": ['what is your race/ethnicity'],
+    "gender": ['what is your gender'],
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name']
 }
 

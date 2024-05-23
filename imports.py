@@ -5,6 +5,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import ElementNotInteractableException
 from dotenv import load_dotenv
 import os
 import time
@@ -17,6 +19,7 @@ from g4f.Provider import Feedough
 from g4f.Provider import Ecosia
 from g4f.errors import RateLimitError
 import undetected_chromedriver as uc
+from datetime import datetime
 load_dotenv()
 answers = {
     "HDYHAU": "other",
@@ -55,7 +58,9 @@ answers = {
     "start_year": os.getenv("START_YEAR"),
     "end_month": os.getenv("END_MONTH"),
     "end_year": os.getenv("END_YEAR"),
-    "country": os.getenv("COUNTRY")
+    "country": os.getenv("COUNTRY"),
+    "race": os.getenv("RACE"),
+    "gender": os.getenv("GENDER")
 }
 AI_PROMPT = os.getenv("AI_PROMPT")
 CL_1 = os.getenv("CL_1")
