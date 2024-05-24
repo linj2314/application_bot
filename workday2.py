@@ -41,6 +41,8 @@ time.sleep(3)
 page = 1
 year = False
 
+#driver.execute_script("document.body.style.zoom='25%'")
+
 while True:
     if page == 1:
         try:
@@ -66,14 +68,19 @@ while True:
         try:
             driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='school']")
         except:
-            driver.find_element(By.CSS_SELECTOR, '[aria-label="Add Education"]').send_keys(Keys.ENTER)
+            driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Add Education"]').click()
+            time.sleep(1)
+
+    if page > 2:
+        try:
+            driver.find_element(By.CSS_SELECTOR, 'div[data-automation-id="reviewJobApplicationPage"]')
+            driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='bottom-navigation-next-button']").click()
+            break
+        except:
+            pass
+
     
     inputs = driver.find_elements(By.XPATH, '//*[starts-with(@id, "input-")]')
-    for i in inputs:
-        try:
-            print(i.get_attribute("id"))
-        except StaleElementReferenceException:
-            continue
     for i in inputs:
         try:
             _ = i.get_attribute("id")
@@ -118,7 +125,7 @@ while True:
             except:
                 continue
 
-        #print(prompt)
+        print(prompt)
 
         response = Response(prompt)
         if response in ["skip_fs", "country", "email"]:
@@ -127,17 +134,29 @@ while True:
         if i.get_attribute("aria-haspopup") == "listbox":
             if response == "skip":
                 i.send_keys(Keys.ENTER)
-                choices = driver.find_element(By.CSS_SELECTOR, "ul[role='listbox']").find_elements(By.CSS_SELECTOR, 'li')
+                choices = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
                 choices = choices[1:]
                 choices_list = []
                 for c in choices:
                     choices_list.append(c.text)
+                i.click()
+                i.click()
+                time.sleep(0.25)
                 submission = AI(prompt, choices_list)
             else:
                 submission = answers[response]
             if i.text == submission:
                 continue
             i.send_keys(submission)
+            try:
+                options = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
+                for o in options:
+                    print(o.value_of_css_property('background-color'))
+                    if o.value_of_css_property('background-color') == 'rgba(8, 117, 225, 1)':
+                        o.click()
+                        break
+            except Exception as e:
+                pass
         elif i.get_attribute("data-uxi-widget-type") == "selectinput":
             if response == "HDYHAU":
                 i.send_keys("other")
@@ -202,3 +221,4 @@ while True:
     time.sleep(3)
     page += 1
 
+time.sleep(10)
