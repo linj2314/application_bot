@@ -11,7 +11,7 @@ chrome_options.add_argument('--remote-debugging-pipe')
 driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
-driver.get("https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Allen-TX-TX139/Software-Engineer-Co-Op--Summer-2024-_R46355")
+driver.get("https://spgi.wd5.myworkdayjobs.com/SPGI_Careers/job/Toronto-CAN/Ratings---Software-Engineer-Intern_295973")
 
 driver.find_element(By.CSS_SELECTOR, '[data-uxi-element-id="Apply_adventureButton"]').click()
 driver.find_element(By.CSS_SELECTOR, '[data-automation-id="applyManually"]').click()
@@ -126,7 +126,7 @@ while True:
 
         if i.get_attribute("aria-haspopup") == "listbox":
             if response == "skip":
-                i.click()
+                i.send_keys(Keys.ENTER)
                 choices = driver.find_element(By.CSS_SELECTOR, "ul[role='listbox']").find_elements(By.CSS_SELECTOR, 'li')
                 choices = choices[1:]
                 choices_list = []
@@ -137,8 +137,26 @@ while True:
                 submission = answers[response]
             if i.text == submission:
                 continue
-            i.send_keys(submission + '\n')
+            i.send_keys(submission)
         elif i.get_attribute("data-uxi-widget-type") == "selectinput":
+            if response == "HDYHAU":
+                i.send_keys("other")
+                i.send_keys(Keys.ENTER)
+                try:
+                    driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='activeListContainer'] div div").find_element(By.CSS_SELECTOR, "input").click()
+                except:
+                    pass
+                try:
+                    driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='formField-sourcePrompt']").find_element(By.CSS_SELECTOR, "div[data-automation-id='DELETE_charm']")
+                except:
+                    i.clear()
+                    i.send_keys("linkedin")
+                    i.send_keys(Keys.ENTER)
+                    try:
+                        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='activeListContainer'] div div").find_element(By.CSS_SELECTOR, "input").click()
+                    except:
+                        pass
+                continue
             submission = answers[response]
             submission = submission.split(',')
             for s in submission:

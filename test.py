@@ -1,4 +1,4 @@
 from imports import *
 from utilities import *
 
-print(Response("What is your Race/Ethnicity?"))
+scrape_links()

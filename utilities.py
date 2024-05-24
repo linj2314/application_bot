@@ -104,7 +104,7 @@ def clean_str(str):
     str = re.sub(pattern, ' ', str)
     return str.lower().strip()
 
-def link_scraper():
+def scrape_links():
     f1 = open("raw.txt", "r")
     f2 = open("links.txt", "w")
     str = f1.read()
@@ -137,7 +137,6 @@ def link_scraper():
     while i < len(arr):
         f2.write(arr[i] + '\n')
         i += 2
-
 
     f1.close()
     f2.close()
