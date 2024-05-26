@@ -35,6 +35,7 @@ keywords = {
     "end_year": ['to', 'to (actual or expected)'],
     "race": ['what is your race/ethnicity'],
     "gender": ['what is your gender'],
+    "country": ['county'],
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name']
 }
 

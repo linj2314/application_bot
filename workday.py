@@ -11,7 +11,7 @@ chrome_options.add_argument('--remote-debugging-pipe')
 driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
-driver.get("https://areteir.wd1.myworkdayjobs.com/Arete-Careers/job/Virginia---Remote/Cyber-Operator-Intern_REQ-2024-961")
+driver.get("https://autodesk.wd1.myworkdayjobs.com/Ext/job/Montreal-QC-CAN/Software-Developer--Intern--Fall-_24WD78460-2")
 
 driver.find_element(By.CSS_SELECTOR, '[data-uxi-element-id="Apply_adventureButton"]').click()
 driver.find_element(By.CSS_SELECTOR, '[data-automation-id="applyManually"]').click()

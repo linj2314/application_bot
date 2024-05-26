@@ -11,7 +11,7 @@ chrome_options.add_argument('--remote-debugging-pipe')
 driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(2)
 
-driver.get("https://spgi.wd5.myworkdayjobs.com/SPGI_Careers/job/Toronto-CAN/Ratings---Software-Engineer-Intern_295973")
+driver.get("https://gen.wd1.myworkdayjobs.com/careers/job/CZE---Prague/Product-Design-Summer-Internship_53121")
 
 driver.find_element(By.CSS_SELECTOR, '[data-uxi-element-id="Apply_adventureButton"]').click()
 driver.find_element(By.CSS_SELECTOR, '[data-automation-id="applyManually"]').click()
@@ -48,8 +48,13 @@ while True:
         try:
             country_input = driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='countryDropdown']")
             if country_input.text != answers["country"]:
-                country_input.send_keys(answers["country"])
-                time.sleep(3)
+                country_input.click()
+                choices = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
+                for c in choices:
+                    if c.text == answers["country"]:
+                        c.click()
+                        time.sleep(3)
+                        break
         except:
             pass
     elif page == 2:
@@ -68,7 +73,7 @@ while True:
         try:
             driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='school']")
         except:
-            driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Add Education"]').click()
+            driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Add Education"]').send_keys(Keys.ENTER)
             time.sleep(1)
 
     if page > 2:
@@ -132,6 +137,16 @@ while True:
             continue
 
         if i.get_attribute("aria-haspopup") == "listbox":
+            if response == "phone_type":
+                print("in phone type")
+                i.send_keys(answers[response])
+                time.sleep(1)
+                if clean_str(i.text) != answers[response]:
+                    i.send_keys("home")
+                time.sleep(1)
+                if clean_str(i.text) != "home":
+                    i.send_keys("cell")
+                continue    
             if response == "skip":
                 i.send_keys(Keys.ENTER)
                 choices = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
@@ -167,6 +182,7 @@ while True:
                     pass
                 try:
                     driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='formField-sourcePrompt']").find_element(By.CSS_SELECTOR, "div[data-automation-id='DELETE_charm']")
+                    driver.find_element(By.TAG_NAME, "body").click()
                 except:
                     i.clear()
                     i.send_keys("linkedin")

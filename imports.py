@@ -60,7 +60,8 @@ answers = {
     "end_year": os.getenv("END_YEAR"),
     "country": os.getenv("COUNTRY"),
     "race": os.getenv("RACE"),
-    "gender": os.getenv("GENDER")
+    "gender": os.getenv("GENDER"),
+    "county": os.getenv("COUNTY")
 }
 AI_PROMPT = os.getenv("AI_PROMPT")
 CL_1 = os.getenv("CL_1")
