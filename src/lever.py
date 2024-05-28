@@ -1,5 +1,5 @@
 from imports import *
-from utilities import Response, AI, CL_Write
+from src.utilities import Response, AI, CL_Write
 
 def lever(link):
     chrome_options = uc.ChromeOptions()

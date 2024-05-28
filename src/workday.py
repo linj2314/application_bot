@@ -1,5 +1,5 @@
 from imports import *
-from utilities import *
+from src.utilities import *
 
 def workday(link):
     EMAIL = os.getenv("EMAIL")

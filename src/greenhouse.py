@@ -1,5 +1,5 @@
 from imports import *
-from utilities import *
+from src.utilities import *
 
 def greenhouse(link):
     chrome_options = Options()

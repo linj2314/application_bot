@@ -1,8 +1,8 @@
 from imports import *
-from utilities import *
-from workday import workday
-from lever import lever
-from greenhouse import greenhouse
+from src.utilities import *
+from src.workday import workday
+from src.lever import lever
+from src.greenhouse import greenhouse
 
 def main():
     scrape_links()
