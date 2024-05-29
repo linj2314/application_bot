@@ -1,4 +1,4 @@
-from imports import *
+from src.imports import *
 from src.utilities import Response, AI, CL_Write
 
 EMAIL = os.getenv("EMAIL")

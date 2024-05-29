@@ -1,4 +1,4 @@
-from imports import *
+from src.imports import *
 
 keywords = {
     "HDYHAU": ["how did you hear about us"],
