@@ -1,4 +1,4 @@
-from src.imports import *
+from package.imports import *
 
 keywords = {
     "HDYHAU": ["how did you hear about us"],
@@ -106,8 +106,8 @@ def clean_str(str):
     return str.lower().strip()
 
 def scrape_links():
-    f1 = open("raw.txt", "r")
-    f2 = open("links.txt", "w")
+    f1 = open(os.getenv("PROJECT_PATH") + "raw.txt", "r")
+    f2 = open(os.getenv("PROJECT_PATH") + "links.txt", "w")
     str = f1.read()
     pattern = r'<a.*?>'
     tags = re.findall(pattern, str, re.DOTALL)

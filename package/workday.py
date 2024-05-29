@@ -1,5 +1,5 @@
-from src.imports import *
-from src.utilities import *
+from package.imports import *
+from package.utilities import *
 
 def workday(link):
     EMAIL = os.getenv("EMAIL")
@@ -13,6 +13,16 @@ def workday(link):
     driver.implicitly_wait(2)
 
     driver.get(link)
+
+    time.sleep(1)
+
+    try:
+        driver.find_element(By.CSS_SELECTOR, "span[data-automation-id='errorMessage']")
+        raise ExpiredApplicationError
+    except ExpiredApplicationError:
+        raise ExpiredApplicationError
+    except:
+        pass
 
     driver.find_element(By.CSS_SELECTOR, '[data-uxi-element-id="Apply_adventureButton"]').click()
     driver.find_element(By.CSS_SELECTOR, '[data-automation-id="applyManually"]').click()
@@ -68,8 +78,7 @@ def workday(link):
                     driver.find_element(By.CSS_SELECTOR, "button[aria-label='Delete Work Experience 1']").click()
                     print("delete button clicked")
                 except:
-                    print("Application required job experience; could not be completed")
-                    exit()
+                    raise RequiredWorkExperienceError()
 
             try:
                 driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='school']")

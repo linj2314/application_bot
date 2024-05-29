@@ -4,3 +4,4 @@ TRANSCRIPT.pdf
 COVER_LETTER.txt
 test*
 *.txt
+__pycache__

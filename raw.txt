@@ -3,13 +3,12 @@
         <body>
         <p><b>New job postings were found!</b></p>
         <br>
-        <table><tr><th>Company</th><th>Job</th><th>Location(s)</th></tr>
+        <table><tr><th>Company</th><th>Job</th></tr>
                 <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Taiwan-Hsinchu/Logistic-Data-Analyst_JR0264527'>Logistic Data Anal=
-yst</a></td>
-                    <td>Taiwan</td>
+                    <td><a href=3D'https://plus.ai/'>PlusAI</a></td>
+                    <td><a href=3D'https://jobs.lever.co/plus-2/89804cf1-85=
+91-4047-90a3-1b7f73093800'>Intern - Perception Research Engineer (Mapping &=
+ Localization)</a></td>
                 </tr>
            =20
                 <tr>
@@ -17,280 +16,21 @@ yst</a></td>
                     <td><a href=3D'https://www.flyzipline.com/careers/open-=
 roles?gh_jid=3D5494156003'>Perception Annotation Internship, Rwanda</a></td=
 >
-                    <td>Rwanda</td>
                 </tr>
            =20
                 <tr>
-                    <td><a href=3D'https://www.farfetch.com/'>Farfetch</a><=
-/td>
-                    <td><a href=3D'https://jobs.lever.co/farfetch/342ccbe3-=
-c2d2-4296-82f8-4fb0adc87350'>Leathergoods Design Intern (curricular Interns=
-hip)</a></td>
-                    <td></td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://www.foxit.com/'>Foxit Software</a=
-></td>
-                    <td><a href=3D'https://jobs.lever.co/foxitsoftware/7093=
-bbd4-df4b-455e-b831-5160f71c8cc6'>UX Research Summer Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Canada-Toronto/Development-Tools-Software-Engineer-Intern_JR026378=
-5-1'>Development Tools Software Engineer Intern</a></td>
-                    <td>Canada</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://hitachi.com/'>Hitachi America Lt=
-d</a></td>
-                    <td><a href=3D'https://hitachi.wd1.myworkdayjobs.com/hi=
-tachi/job/Krakow-Lesser-Poland-Poland/Internship---Data-Engineer_R0052456-1=
-'>Internship =E2=80=93 Data Engineer</a></td>
-                    <td>Poland</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.xiaopeng.com/'>Xpeng Motors<=
-/a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/xpengmotors=
-/jobs/7310401002'>Machine Learning Engineer Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.xiaopeng.com/'>Xpeng Motors<=
-/a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/xpengmotors=
-/jobs/7458000002'>Machine Learning Engineer Intern - Foundation Models</a><=
-/td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
+                    <td><a href=3D'https://www.celonis.com/'>Celonis</a></t=
 d>
-                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
-Careers/job/Banglore-Karnatak/Generative-AI-Apprentice_300870'>Generative A=
-I Apprentice</a></td>
-                    <td></td>
+                    <td><a href=3D'https://boards.greenhouse.io/celonis/job=
+s/5944229003'>Intern Accounts Receivable Product Engineer</a></td>
                 </tr>
            =20
                 <tr>
-                    <td><a href=3D'https://www.appier.com/'>Appier</a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/appier/jobs=
-/5978828'>Technical Solution Engineer Intern (Vietnamese/Indonesian)</a></t=
-d>
-                    <td>Taiwan</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://www.riotgames.com/'>Riot Games</a=
-></td>
-                    <td><a href=3D'https://www.riotgames.com/en/work-with-u=
-s/job/5977613?gh_jid=3D5977613'>Software Engineering Intern (Contract)</a><=
-/td>
-                    <td>Australia</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
-d>
-                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
-Careers/job/Gurgaon-Haryana/Apprentice--Software-Engineer_302027'>Apprentic=
-e, Software Engineer</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://relaypro.com/'>Relay</a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/relaypro/jo=
-bs/5917369'>Product Engineering Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://performline.com/'>PerformLine</a=
-></td>
-                    <td><a href=3D'https://performline.com/company/career-o=
-pportunities/?gh_jid=3D5965411'>Operations Internship</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.dataiku.com/'>Dataiku</a></t=
-d>
-                    <td><a href=3D'https://boards.greenhouse.io/dataiku/job=
-s/5178444004'>Business Transformation Intern</a></td>
-                    <td>France</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
-                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
-jid=3D4371956006'>Associate Data Engineer Intern </a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
-                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
-jid=3D4371159006'>Associate Data Engineer Intern </a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
-                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
-jid=3D4371955006'>Associate Data Engineer Intern </a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://frostbank.com/'>Frost Bank</a></=
-td>
-                    <td><a href=3D'https://frostbank.wd5.myworkdayjobs.com/=
-External/job/San-Antonio-TX---One-Frost/College-Intern---IT-Business-Analys=
-is_R240952'>College Intern =E2=80=93 IT Business Analysis</a></td>
-                    <td></td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/US-California-Folsom/GPU-Architect-Intern_JR0264111-1'>GPU Archite=
-ct Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Virtual-US/Software-Design-Engineer-Intern_JR0263797'>Software Des=
-ign Engineer Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://torc.ai/'>Torc Robotics</a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/torcrobotic=
-s/jobs/6869110002'>Perception Simulation Machine Learning Internship</a></t=
-d>
-                    <td>Germany</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://www.stackadapt.com/'>StackAdapt</=
-a></td>
-                    <td><a href=3D'https://jobs.lever.co/stackadapt/1490b4f=
-9-407d-44c7-a8b6-b8cb5be79d14'>Data Analyst Intern (Toronto)</a></td>
-                    <td>Canada</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.kiva.org/'>Kiva</a></td>
-                    <td><a href=3D'https://boards.greenhouse.io/kivaorg/job=
-s/5986887?gh_jid=3D5986887'>Design Intern</a></td>
-                    <td>Germany</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://rafhanmaize.com/'>Rafhan Maize</=
-a></td>
-                    <td><a href=3D'https://ingredion.wd1.myworkdayjobs.com/=
-IngredionCareers/job/Enstek/Intern_Req-29481'>Intern</a></td>
-                    <td>Malaysia</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.sensata.com/'>Sensata</a></t=
-d>
-                    <td><a href=3D'https://sensata.wd1.myworkdayjobs.com/Se=
-nsata-Careers/job/Antrim-United-Kingdom/Intern-Professional_IRC92928'>Inter=
-n Professional</a></td>
-                    <td>United Kingdom</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://www.motorolasolutions.com/'>Motor=
-ola Solutions</a></td>
-                    <td><a href=3D'https://motorolasolutions.wd5.myworkdayj=
-obs.com/Careers/job/Allen-TX-TX139/Software-Engineer-Co-Op--Summer-2024-_R4=
-7279'>Software Engineer Co-Op (Summer 2024)</a></td>
-                    <td></td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Malaysia-Penang/System-Software-Development-Engineer--Intern-_JR02=
-64604'>System Software Development Engineer (Intern)</a></td>
-                    <td>Malaysia</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Malaysia-Kulim/Technical-Training-Data-Analyst-Intern_JR0264491'>T=
-echnical Training Data Analyst Intern</a></td>
-                    <td>Malaysia</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/India-Bangalore/Student-Intern_JR0259686'>Student Intern</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/India-Bangalore/Student-Intern_JR0264412'>Student Intern</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/India-Bangalore/Student-Intern_JR0257002'>Student Intern</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/India-Bangalore/Graduate-Intern-Technical_JR0264402'>Graduate Inte=
-rn Technical</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/India-Bangalore/Graduate-Intern-Technical_JR0264401'>Graduate Inte=
-rn Technical</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Taiwan-Hsinchu/Logistic-Data-Analyst_JR0264528'>Logistic Data Anal=
-yst</a></td>
-                    <td>Taiwan</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Poland-Gdansk/Lab-Compute-Infrastructure-and-DevOps-Intern_JR02645=
-87'>Lab Compute Infrastructure and DevOps Intern</a></td>
-                    <td>Poland</td>
+                    <td><a href=3D'https://www.nortonlifelock.com/'>NortonL=
+ifeLock</a></td>
+                    <td><a href=3D'https://gen.wd1.myworkdayjobs.com/career=
+s/job/CZE---Prague/Product-Design-Summer-Internship_53121'>Product Design S=
+ummer Internship</a></td>
                 </tr>
            =20
                 <tr>
@@ -300,24 +40,6 @@ d>
 Careers/job/Gurgaon-Haryana/Apprentice---Data-Management---Automotive-Plann=
 ing-Solutions_300976'>Apprentice =E2=80=93 Data Management =E2=80=93 Automo=
 tive Planning Solutions</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.nortonlifelock.com/'>NortonL=
-ifeLock</a></td>
-                    <td><a href=3D'https://gen.wd1.myworkdayjobs.com/career=
-s/job/CZE---Prague/Product-Design-Summer-Internship_53121'>Product Design S=
-ummer Internship</a></td>
-                    <td>Czechia</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/Malaysia-Penang/System-Software-Development-Engineer--Intern-_JR02=
-64761'>System Software Development Engineer (Intern)</a></td>
-                    <td>Malaysia</td>
                 </tr>
            =20
                 <tr>
@@ -325,7 +47,67 @@ rnal/job/Malaysia-Penang/System-Software-Development-Engineer--Intern-_JR02=
                     <td><a href=3D'https://trellix.wd1.myworkdayjobs.com/En=
 terpriseCareers/job/India-Bangalore/Data-Security-apprentice_JR0033476'>Dat=
 a Security apprentice</a></td>
-                    <td>India</td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
+                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
+ernal/job/Remote-US/Information-Systems-Technology-Intern_R-00135901'>Infor=
+mation Systems Technology Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.farfetch.com/'>Farfetch</a><=
+/td>
+                    <td><a href=3D'https://jobs.lever.co/farfetch/342ccbe3-=
+c2d2-4296-82f8-4fb0adc87350'>Leathergoods Design Intern (curricular Interns=
+hip)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.foxit.com/'>Foxit Software</a=
+></td>
+                    <td><a href=3D'https://jobs.lever.co/foxitsoftware/7093=
+bbd4-df4b-455e-b831-5160f71c8cc6'>UX Research Summer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.xiaopeng.com/'>Xpeng Motors<=
+/a></td>
+                    <td><a href=3D'https://boards.greenhouse.io/xpengmotors=
+/jobs/7458000002'>Machine Learning Engineer Intern - Foundation Models</a><=
+/td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
+d>
+                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
+Careers/job/Banglore-Karnatak/Generative-AI-Apprentice_300870'>Generative A=
+I Apprentice</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.appier.com/'>Appier</a></td>
+                    <td><a href=3D'https://boards.greenhouse.io/appier/jobs=
+/5978828'>Technical Solution Engineer Intern (Vietnamese/Indonesian)</a></t=
+d>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.riotgames.com/'>Riot Games</a=
+></td>
+                    <td><a href=3D'https://www.riotgames.com/en/work-with-u=
+s/job/5977613?gh_jid=3D5977613'>Software Engineering Intern (Contract)</a><=
+/td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
+d>
+                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
+Careers/job/Gurgaon-Haryana/Apprentice--Software-Engineer_302027'>Apprentic=
+e, Software Engineer</a></td>
                 </tr>
            =20
                 <tr>
@@ -333,7 +115,6 @@ a Security apprentice</a></td>
                     <td><a href=3D'https://nvidia.wd5.myworkdayjobs.com/NVI=
 DIAExternalCareerSite/job/Armenia-Yerevan/Software-Intern---Omniverse_JR197=
 2644'>Software Intern - Omniverse</a></td>
-                    <td>Armenia</td>
                 </tr>
            =20
                 <tr>
@@ -342,7 +123,6 @@ Careers</a></td>
                     <td><a href=3D'https://disney.wd5.myworkdayjobs.com/dis=
 neycareer/job/Shanghai-China/Intern--Retail-Design_10088395'>Intern, Retail=
  Design</a></td>
-                    <td>China</td>
                 </tr>
            =20
                 <tr>
@@ -350,25 +130,12 @@ neycareer/job/Shanghai-China/Intern--Retail-Design_10088395'>Intern, Retail=
 /a></td>
                     <td><a href=3D'https://jobs.lever.co/mindtickle/620c1b6=
 a-f4fc-49ee-a399-7c6bb186ef7c'>Design System - Intern</a></td>
-                    <td>India</td>
                 </tr>
            =20
                 <tr>
-                    <td><a href=3D'http://www.motorolasolutions.com/'>Motor=
-ola Solutions</a></td>
-                    <td><a href=3D'https://motorolasolutions.wd5.myworkdayj=
-obs.com/Careers/job/Fresno-CA-CA180/Software-Engineer--Co-Op_R47247'>Softwa=
-re Engineer, Co-Op</a></td>
-                    <td></td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://corporate.comcast.com/'>Comcast</=
-a></td>
-                    <td><a href=3D'https://comcast.wd5.myworkdayjobs.com/Co=
-mcast_Careers/job/CO---Centennial-4100-E-Dry-Creek-Rd/RaptorTECH-Intern_R38=
-8011'>RaptorTECH Intern</a></td>
-                    <td>United States</td>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/India-Bangalore/Student-Intern_JR0257002'>Student Intern</a></td>
                 </tr>
            =20
                 <tr>
@@ -377,16 +144,6 @@ a></td>
                     <td><a href=3D'https://comcast.wd5.myworkdayjobs.com/Co=
 mcast_Careers/job/CO---Centennial-4100-E-Dry-Creek-Rd/RaptorTECH-Intern_R38=
 8010'>RaptorTECH Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://corporate.comcast.com/'>Comcast</=
-a></td>
-                    <td><a href=3D'https://comcast.wd5.myworkdayjobs.com/Co=
-mcast_Careers/job/CO---Centennial-4100-E-Dry-Creek-Rd/RaptorTECH-Intern_R38=
-8008'>RaptorTECH Intern</a></td>
-                    <td>United States</td>
                 </tr>
            =20
                 <tr>
@@ -395,32 +152,6 @@ a></td>
                     <td><a href=3D'https://comcast.wd5.myworkdayjobs.com/Co=
 mcast_Careers/job/CO---Centennial-4100-E-Dry-Creek-Rd/RaptorTECH-Intern_R38=
 8004'>RaptorTECH Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'http://corporate.comcast.com/'>Comcast</=
-a></td>
-                    <td><a href=3D'https://comcast.wd5.myworkdayjobs.com/Co=
-mcast_Careers/job/CO---Centennial-4100-E-Dry-Creek-Rd/RaptorTECH-Intern_R38=
-8000'>RaptorTECH Intern</a></td>
-                    <td>United States</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
-                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
-rnal/job/PRC-Shanghai/Software-Engineer-Intern_JR0264533'>Software Engineer=
- Intern</a></td>
-                    <td>China</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://plus.ai/'>PlusAI</a></td>
-                    <td><a href=3D'https://jobs.lever.co/plus-2/89804cf1-85=
-91-4047-90a3-1b7f73093800'>Intern - Perception Research Engineer (Mapping &=
- Localization)</a></td>
-                    <td>United States</td>
                 </tr>
            =20
                 <tr>
@@ -428,7 +159,6 @@ rnal/job/PRC-Shanghai/Software-Engineer-Intern_JR0264533'>Software Engineer=
 d>
                     <td><a href=3D'https://boards.greenhouse.io/codazen/job=
 s/5185998004'>UX/UI Internship</a></td>
-                    <td>United States</td>
                 </tr>
            =20
                 <tr>
@@ -436,7 +166,6 @@ s/5185998004'>UX/UI Internship</a></td>
                     <td><a href=3D'https://nvidia.wd5.myworkdayjobs.com/NVI=
 DIAExternalCareerSite/job/China-Shanghai/Deep-Learning-Performance-Architec=
 t-Intern_JR1982021-1'>Deep Learning Performance Architect Intern</a></td>
-                    <td>China</td>
                 </tr>
            =20
                 <tr>
@@ -444,7 +173,6 @@ t-Intern_JR1982021-1'>Deep Learning Performance Architect Intern</a></td>
                     <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
 rnal/job/Malaysia-Penang/PGDM-Process-Yield-Integration--Metrology--Intern_=
 JR0264258'>PGDM Process Yield Integration (Metrology) Intern</a></td>
-                    <td>Malaysia</td>
                 </tr>
            =20
                 <tr>
@@ -452,7 +180,6 @@ JR0264258'>PGDM Process Yield Integration (Metrology) Intern</a></td>
 /td>
                     <td><a href=3D'https://boards.greenhouse.io/deliveroo/j=
 obs/5979475'>Summer Intern (2 month Fixed Term Contract)</a></td>
-                    <td>China</td>
                 </tr>
            =20
                 <tr>
@@ -460,7 +187,6 @@ obs/5979475'>Summer Intern (2 month Fixed Term Contract)</a></td>
 d>
                     <td><a href=3D'https://www.wayfair.com/careers/jobs/746=
 0306002?gh_jid=3D7460306002'>APS ACQ Intern</a></td>
-                    <td>China</td>
                 </tr>
            =20
                 <tr>
@@ -469,7 +195,6 @@ d>
                     <td><a href=3D'https://www.taboola.com/careers/job/5978=
 849?gh_jid=3D5978849'>Software Engineer Intern- Budapest( EVERGREEN)</a></t=
 d>
-                    <td>Hungary</td>
                 </tr>
            =20
                 <tr>
@@ -477,7 +202,6 @@ d>
 d>
                     <td><a href=3D'https://boards.greenhouse.io/headoutcare=
 ers/jobs/4048068006?gh_jid=3D4048068006'>Product Design, Intern</a></td>
-                    <td>India</td>
                 </tr>
            =20
                 <tr>
@@ -485,15 +209,6 @@ ers/jobs/4048068006?gh_jid=3D4048068006'>Product Design, Intern</a></td>
 d>
                     <td><a href=3D'https://boards.greenhouse.io/headoutcare=
 ers/jobs/4050270006?gh_jid=3D4050270006'>Brand Design, Intern</a></td>
-                    <td>India</td>
-                </tr>
-           =20
-                <tr>
-                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
-                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
-ernal/job/Odenton-MD/IT-Administrator-Intern_R-00136080'>IT Administrator I=
-ntern</a></td>
-                    <td>United States</td>
                 </tr>
            =20
                 <tr>
@@ -501,7 +216,6 @@ ntern</a></td>
 </td>
                     <td><a href=3D'https://boards.greenhouse.io/tiermobilit=
 y/jobs/5186331004'>Central - Junior IT Support Technician (Intern)</a></td>
-                    <td>Hungary</td>
                 </tr>
            =20
                 <tr>
@@ -509,7 +223,6 @@ y/jobs/5186331004'>Central - Junior IT Support Technician (Intern)</a></td>
                     <td><a href=3D'https://jobs.lever.co/ledger/522b9110-b5=
 28-4965-bf04-14bdcf619517'>Software Security Engineer - Apprenticeship</a><=
 /td>
-                    <td>France</td>
                 </tr>
            =20
                 <tr>
@@ -517,7 +230,6 @@ y/jobs/5186331004'>Central - Junior IT Support Technician (Intern)</a></td>
 /td>
                     <td><a href=3D'https://jobs.lever.co/wadetrim/7b6c544d-=
 4e9b-4bef-92b8-d827f81886e4'>IT - AI Intern - 2486.29</a></td>
-                    <td>United States</td>
                 </tr>
            =20
                 <tr>
@@ -525,7 +237,6 @@ y/jobs/5186331004'>Central - Junior IT Support Technician (Intern)</a></td>
 /td>
                     <td><a href=3D'https://jobs.lever.co/backmarket/717c383=
 0-860f-466a-a5fe-9fe68edb55e7'>Full Stack Developer Apprentice</a></td>
-                    <td>France</td>
                 </tr>
            =20
                 <tr>
@@ -533,13 +244,386 @@ y/jobs/5186331004'>Central - Junior IT Support Technician (Intern)</a></td>
 /td>
                     <td><a href=3D'https://jobs.lever.co/backmarket/d7ad126=
 e-fb82-4d2b-8193-f5d9f78b1a07'>Full Stack Developer Apprentice</a></td>
-                    <td>France</td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://relaypro.com/'>Relay</a></td>
+                    <td><a href=3D'https://boards.greenhouse.io/relaypro/jo=
+bs/5917369'>Product Engineering Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://torc.ai/'>Torc Robotics</a></td>
+                    <td><a href=3D'https://boards.greenhouse.io/torcrobotic=
+s/jobs/6869110002'>Perception Simulation Machine Learning Internship</a></t=
+d>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://performline.com/'>PerformLine</a=
+></td>
+                    <td><a href=3D'https://performline.com/company/career-o=
+pportunities/?gh_jid=3D5965411'>Operations Internship</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.dataiku.com/'>Dataiku</a></t=
+d>
+                    <td><a href=3D'https://boards.greenhouse.io/dataiku/job=
+s/5178444004'>Business Transformation Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
+                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
+jid=3D4371956006'>Associate Data Engineer Intern </a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
+                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
+jid=3D4371159006'>Associate Data Engineer Intern </a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.onbe.com/'>Onbe</a></td>
+                    <td><a href=3D'https://www.onbe.com/company/careers?gh_=
+jid=3D4371955006'>Associate Data Engineer Intern </a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/US-California-Folsom/GPU-Architect-Intern_JR0264111-1'>GPU Archite=
+ct Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.stackadapt.com/'>StackAdapt</=
+a></td>
+                    <td><a href=3D'https://jobs.lever.co/stackadapt/1490b4f=
+9-407d-44c7-a8b6-b8cb5be79d14'>Data Analyst Intern (Toronto)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://rafhanmaize.com/'>Rafhan Maize</=
+a></td>
+                    <td><a href=3D'https://ingredion.wd1.myworkdayjobs.com/=
+IngredionCareers/job/Enstek/Intern_Req-29481'>Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.sensata.com/'>Sensata</a></t=
+d>
+                    <td><a href=3D'https://sensata.wd1.myworkdayjobs.com/Se=
+nsata-Careers/job/Antrim-United-Kingdom/Intern-Professional_IRC92928'>Inter=
+n Professional</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.motorolasolutions.com/'>Motor=
+ola Solutions</a></td>
+                    <td><a href=3D'https://motorolasolutions.wd5.myworkdayj=
+obs.com/Careers/job/Allen-TX-TX139/Software-Engineer-Co-Op--Summer-2024-_R4=
+7279'>Software Engineer Co-Op (Summer 2024)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Malaysia-Kulim/Technical-Training-Data-Analyst-Intern_JR0264491'>T=
+echnical Training Data Analyst Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Taiwan-Hsinchu/Logistic-Data-Analyst_JR0264528'>Logistic Data Anal=
+yst</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Poland-Gdansk/Lab-Compute-Infrastructure-and-DevOps-Intern_JR02645=
+87'>Lab Compute Infrastructure and DevOps Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Taiwan-Hsinchu/Logistic-Data-Analyst_JR0264527'>Logistic Data Anal=
+yst</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://hitachi.com/'>Hitachi America Lt=
+d</a></td>
+                    <td><a href=3D'https://hitachi.wd1.myworkdayjobs.com/hi=
+tachi/job/Krakow-Lesser-Poland-Poland/Internship---Data-Engineer_R0052456-1=
+'>Internship =E2=80=93 Data Engineer</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Malaysia-Penang/System-Software-Development-Engineer--Intern-_JR02=
+64761'>System Software Development Engineer (Intern)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.nimblerx.com/'>NimbleRx</a><=
+/td>
+                    <td><a href=3D'https://jobs.lever.co/nimblerx/2e79c00e-=
+cd20-4517-b109-f26755103817'>Software Engineer Intern - Fall Session (Augus=
+t - December 2024)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://aircall.io/'>Aircall</a></td>
+                    <td><a href=3D'https://jobs.lever.co/aircall/8602dbc4-b=
+ef6-412f-93de-fd32ce4305e1'>IT Operations apprentice</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.kobo.com/'>Kobo</a></td>
+                    <td><a href=3D'https://rakuten.wd1.myworkdayjobs.com/Ko=
+bo/job/Toronto-Canada/Software-Quality-Assurance-Engineer-Co-op--8-Months-_=
+1021938'>Software Quality Assurance Engineer Co-op (8 Months)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.eulerity.com/'>Eulerity</a><=
+/td>
+                    <td><a href=3D'https://boards.greenhouse.io/eulerity/jo=
+bs/4360771006'>Web Developer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.motorolasolutions.com/'>Motor=
+ola Solutions</a></td>
+                    <td><a href=3D'https://motorolasolutions.wd5.myworkdayj=
+obs.com/Careers/job/Somerville-MA/Machine-Learning-Engineer---2024-Fall-Co-=
+Op_R46552-1'>Machine Learning Engineer - 2024 Fall Co-Op</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
+                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
+ernal/job/Orlando-FL/Simulation-Development-Intern_R-00136145'>Simulation D=
+evelopment Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
+                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
+ernal/job/Columbia-MD/Systems-Engineer-Intern_R-00136140'>Systems Engineer =
+Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
+                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
+ernal/job/Columbia-MD/Cyber-Analyst-Intern_R-00136139'>Cyber Analyst Intern=
+</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.leidos.com/'>Leidos</a></td>
+                    <td><a href=3D'https://leidos.wd5.myworkdayjobs.com/Ext=
+ernal/job/Columbia-MD/Software-Engineer-Intern_R-00136137'>Software Enginee=
+r Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/US-California-Santa-Clara/System-Architect-and-Design-Engineer-Int=
+ern_JR0264514'>System Architect and Design Engineer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.bmo.com/'>Bank of Montreal (=
+BMO)</a></td>
+                    <td><a href=3D'https://bmo.wd3.myworkdayjobs.com/Extern=
+al/job/San-Ramon-CA-USA/Software-Developer--Fall-2024--Internship----4-mont=
+hs_R240014421'>Software Developer, Fall 2024 (Internship) - 4 months</a></t=
+d>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/Malaysia-Penang/Facilities-Total-Gas-Chemical-Management-Intern_JR=
+0264153-1'>Facilities Total Gas Chemical Management Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://convatec.com/'>ConvaTec Ltd</a><=
+/td>
+                    <td><a href=3D'https://convatec.wd1.myworkdayjobs.com/C=
+onvaTec/job/LEX-Lexington-MA/Convatec-Sustainability-Summer-Internship-Prog=
+ramme---Sustainability-Data-Solutions_JR00011994'>Convatec Sustainability S=
+ummer Internship Programme - Sustainability Data Solutions</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.semtech.com/'>Semtech</a></t=
+d>
+                    <td><a href=3D'https://semtech.wd1.myworkdayjobs.com/Se=
+mtechCareers/job/IND---Pune-India/Intern--Data-Analytics_REQ2227'>Intern- D=
+ata Analytics</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.keyrock.eu/'>Keyrock</a></td=
+>
+                    <td><a href=3D'https://jobs.ashbyhq.com/keyrock/7ca3ce6=
+6-868c-4327-b4fd-2791bff0a2f2'>Quantitative Research Intern - Digital Asset=
+s</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/US-Massachusetts-Hudson/Physical-Design-Engineer-Intern_JR0264629'=
+>Physical Design Engineer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.schonfeld.com/'>Schonfeld</a=
+></td>
+                    <td><a href=3D'https://boards.greenhouse.io/schonfeld/j=
+obs/5359234'>2024 Quantitative Researcher Summer Intern - Hong Kong</a></td=
+>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.konrad.com/'>Konrad Group</a=
+></td>
+                    <td><a href=3D'https://www.konrad.com/careers/job/59986=
+06003?gh_jid=3D5998606003'>Software Developer Intern - May 2025 (4 months)<=
+/a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.konrad.com/'>Konrad Group</a=
+></td>
+                    <td><a href=3D'https://www.konrad.com/careers/job/59977=
+73003?gh_jid=3D5997773003'>UI/UX Design Intern - May 2025 (4 months)</a></t=
+d>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.konrad.com/'>Konrad Group</a=
+></td>
+                    <td><a href=3D'https://www.konrad.com/careers/job/59978=
+01003?gh_jid=3D5997801003'>Software Developer Intern - May 2025 (4 months)<=
+/a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.extremenetworks.com/'>Extreme=
+ Networks</a></td>
+                    <td><a href=3D'https://jobs.lever.co/extremenetworks/32=
+517591-344f-47d2-9a6c-cc43fc57de2d'>Lab Network Engineer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.finn.com/'>FINN</a></td>
+                    <td><a href=3D'https://jobs.lever.co/finn/3c93f48a-5714=
+-41ab-9f25-c11b52849f49'>Internship - IT Administration (m/f/x)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://frostbank.com/'>Frost Bank</a></=
+td>
+                    <td><a href=3D'https://frostbank.wd5.myworkdayjobs.com/=
+External/job/San-Antonio-TX---One-Frost/College-Intern---Internal-Audit_R24=
+1007'>College Intern - Internal Audit</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'http://www.pivotalcommware.com/'>Pivotal=
+ Commware</a></td>
+                    <td><a href=3D'https://jobs.lever.co/pivotalcommware/5d=
+c0a538-d6b4-4258-a196-63a4c10016f3'>RF Systems Integration Engineering Inte=
+rn</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.cloudwalk.io/'>CloudWalk</a>=
+</td>
+                    <td><a href=3D'https://jobs.lever.co/cloudwalk/4af280f3=
+-35ed-48cc-a212-5134a6e0c321'>Business Monitoring Intelligence Intern</a></=
+td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://rafhanmaize.com/'>Rafhan Maize</=
+a></td>
+                    <td><a href=3D'https://ingredion.wd1.myworkdayjobs.com/=
+IngredionCareers/job/Bedford-Park-IL/Control-Systems-Engineer-Co-Op--Fall-2=
+024-_Req-29616'>Control Systems Engineer Co-Op (Fall 2024)</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
+d>
+                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
+Careers/job/Hyderabad-Telangana/Intern---Software-Development---Engineering=
+_302376-2'>Intern - Software Development / Engineering</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://spglobal.com/'>S&P Global</a></t=
+d>
+                    <td><a href=3D'https://spgi.wd5.myworkdayjobs.com/SPGI_=
+Careers/job/Hyderabad-Telangana/Apprentice--Software-Engineer_302268'>Appre=
+ntice, Software Engineer</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://adient.com/'>Adient</a></td>
+                    <td><a href=3D'https://adient.wd3.myworkdayjobs.com/Ext=
+ernal/job/RomaniaJimbolia/Intern-Student-Quality_R-22789'>Intern/Student Qu=
+ality</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.intel.com/'>Intel</a></td>
+                    <td><a href=3D'https://intel.wd1.myworkdayjobs.com/Exte=
+rnal/job/PRC-Shanghai/AI-Image-Vision-Model-Research-Intern_JR0263920'>AI I=
+mage/Vision Model Research Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://mtch.com/'>Match Group</a></td>
+                    <td><a href=3D'https://jobs.lever.co/matchgroup/e9c4bad=
+5-0be5-4bc4-a8d3-dd6321d4fbef'>Apprenticeship Junior Brand Designer</a></td=
+>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://www.xiaopeng.com/'>Xpeng Motors<=
+/a></td>
+                    <td><a href=3D'https://boards.greenhouse.io/xpengmotors=
+/jobs/7310401002'>Machine Learning Engineer Intern</a></td>
+                </tr>
+           =20
+                <tr>
+                    <td><a href=3D'https://fmcna.com/'>Fresenius Medical Ca=
+re North America</a></td>
+                    <td><a href=3D'https://freseniusmedicalcare.wd3.myworkd=
+ayjobs.com/fme/job/Bad-Homburg-Germany/Intern--m-f-d--International-Interna=
+l-Control-System_R0156289'>Intern (m/f/d) International Internal Control Sy=
+stem</a></td>
                 </tr>
             </table>
         <br>
-        <p><a href=3D'https://notify.careers'>notify.careers</a></p>
-        <p><a href=3D'https://notify.careers/account'>update email notifica=
-tions</a></p>
+        <p><a href=3D'https://app.notify.careers'>notify.careers</a></p>
+        <p><a href=3D'https://app.notify.careers/notifications'>update emai=
+l notifications</a></p>
         </body>
         </html>
    =20

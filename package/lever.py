@@ -1,5 +1,5 @@
-from src.imports import *
-from src.utilities import Response, AI, CL_Write
+from package.imports import *
+from package.utilities import Response, AI, CL_Write
 
 def lever(link):
     chrome_options = uc.ChromeOptions()
@@ -11,6 +11,17 @@ def lever(link):
     driver.implicitly_wait(2)
 
     driver.get(link)
+
+    time.sleep(1)
+
+    try:
+        if driver.find_element(By.TAG_NAME, "h2").text == "Sorry, we couldn't find anything here":
+            raise ExpiredApplicationError
+    except ExpiredApplicationError:
+        raise ExpiredApplicationError
+    except:
+        pass
+        
 
     driver.find_element(By.CSS_SELECTOR, "a[class*='postings-btn']").click()
 

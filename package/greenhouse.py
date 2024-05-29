@@ -1,5 +1,5 @@
-from src.imports import *
-from src.utilities import *
+from package.imports import *
+from package.utilities import *
 
 def greenhouse(link):
     chrome_options = Options()
@@ -10,6 +10,16 @@ def greenhouse(link):
     driver.implicitly_wait(2)
 
     driver.get(link)
+
+    time.sleep(1)
+
+    try:
+        driver.find_element(By.ID, "flash_pending")
+        raise ExpiredApplicationError
+    except ExpiredApplicationError:
+        raise ExpiredApplicationError
+    except:
+        pass
 
     text_inputs = driver.find_elements(By.CSS_SELECTOR, "input[type='text']:not([class])")
     dropdown_inputs_1 = driver.find_elements(By.CSS_SELECTOR, "div.select2-container")
