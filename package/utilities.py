@@ -19,7 +19,7 @@ keywords = {
     "major": ["field of study", "major", "discipline"],
     "GPA": ["overall result (gpa)", "gpa"],
     "linkedin": ["linkedin", "linkedin url", "linkedin profile"],
-    "website": ["portfolio url", "website url", "website"],
+    "website": ["portfolio url", "website url", "website", "other website"],
     "resume": ["resume/cv", "resume-allowable-file-types"],
     "cover_letter": ["cover letter", "cover_letter-allowable-file-types"],
     "transcript": ["transcript"],
@@ -36,11 +36,11 @@ keywords = {
     "race": ['what is your race/ethnicity'],
     "gender": ['what is your gender'],
     "country": ['county'],
-    "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name']
+    "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name', 'race']
 }
 
 providers = [DuckDuckGo, Ecosia, Aichatos, Feedough]
-provider_ind = 1
+provider_ind = 0
 
 def AI(prompt, choices = [], extras = []):
     global AI_PROMPT
