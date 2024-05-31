@@ -109,6 +109,7 @@ def scrape_links():
     f1 = open(os.getenv("PROJECT_PATH") + "raw.txt", "r")
     f2 = open(os.getenv("PROJECT_PATH") + "links.txt", "w")
     str = f1.read()
+    str = re.sub('"', "'", str)
     pattern = r'<a.*?>'
     tags = re.findall(pattern, str, re.DOTALL)
 

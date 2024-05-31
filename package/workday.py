@@ -18,9 +18,7 @@ def workday(link):
 
     try:
         driver.find_element(By.CSS_SELECTOR, "span[data-automation-id='errorMessage']")
-        raise ExpiredApplicationError
-    except ExpiredApplicationError:
-        raise ExpiredApplicationError
+        return 2
     except:
         pass
 
@@ -49,6 +47,12 @@ def workday(link):
 
     time.sleep(3)
 
+    try:
+        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='alreadyApplied']")
+        return 2
+    except:
+        pass
+
     page = 1
     year = False
 
@@ -76,7 +80,6 @@ def workday(link):
             else:
                 try:
                     driver.find_element(By.CSS_SELECTOR, "button[aria-label='Delete Work Experience 1']").click()
-                    print("delete button clicked")
                 except:
                     raise RequiredWorkExperienceError()
 
@@ -140,15 +143,12 @@ def workday(link):
                 except:
                     continue
 
-            print(prompt)
-
             response = Response(prompt)
             if response in ["skip_fs", "country", "email"]:
                 continue
 
             if i.get_attribute("aria-haspopup") == "listbox":
                 if response == "phone_type":
-                    print("in phone type")
                     i.send_keys(answers[response])
                     time.sleep(1)
                     if clean_str(i.text) != answers[response]:
@@ -176,7 +176,6 @@ def workday(link):
                 try:
                     options = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
                     for o in options:
-                        print(o.value_of_css_property('background-color'))
                         if o.value_of_css_property('background-color') == 'rgba(8, 117, 225, 1)':
                             o.click()
                             break
@@ -247,4 +246,10 @@ def workday(link):
         time.sleep(3)
         page += 1
 
-    driver.quit()
+    try:
+        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='congratulationsPopup]")
+        driver.quit()
+        return 0
+    except:
+        driver.quit()
+        return 1

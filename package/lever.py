@@ -16,9 +16,7 @@ def lever(link):
 
     try:
         if driver.find_element(By.TAG_NAME, "h2").text == "Sorry, we couldn't find anything here":
-            raise ExpiredApplicationError
-    except ExpiredApplicationError:
-        raise ExpiredApplicationError
+            return 2
     except:
         pass
         
@@ -28,7 +26,7 @@ def lever(link):
     skip = ['name', 'email', 'phone_number', 'location', 'linkedin', 'github']
 
     driver.find_element(By.ID, "resume-upload-input").send_keys(answers["resume"])
-    time.sleep(4)
+    time.sleep(7)
 
     extras = []
     company_info = driver.title

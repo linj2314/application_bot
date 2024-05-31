@@ -1,14 +1,12 @@
 from package import *
-import cProfile
-import pstats
 
 def main():
     scrape_links()
     f = open("links.txt", "r")
     links = f.readlines()
-    f1 = open("application_count.txt", "rw")
-    f2 = open("not_applied_to.txt", "w")
-    num_applied = int(f.read())
+    f1 = open("application_count.txt", "r+")
+    f2 = open("not_applied_to.txt", "a")
+    num_applied = int(f1.read())
     
     for link in links:
         try:
@@ -19,29 +17,31 @@ def main():
             elif re.search("boards.greenhouse.io", link):
                 ret = greenhouse(link)
             else:
-                f2.write(link)
+                f2.write(link + "\n")
                 continue
 
             if ret == 0:
                 #successful application
+                print("Applied!")
                 num_applied += 1
             elif ret == 1:
                 #not successful; add to list of unapplied applications
-                f2.write(link)
+                print("Unsuccesful")
+                f2.write(link + "\n")
             elif ret == 2:
-                #application already submitted; do nothing
+                #do nothing
+                print("Already Applied/Expired Application")
                 pass
 
-        except ExpiredApplicationError as e:
+        except Exception as e:
             print(e.message)
             continue
 
-    f1.write(num_applied)
+    f1.seek(0)
+    f1.write(str(num_applied))
+    f1.truncate()
     f1.close()
     f2.close()
 
 if __name__ == "__main__":
-    f = open("application_count.txt", "rw")
-    n = int(f.read())
-    f.write(n + 1)
-    f.close()
+    main()

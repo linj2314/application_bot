@@ -15,9 +15,7 @@ def greenhouse(link):
 
     try:
         driver.find_element(By.ID, "flash_pending")
-        raise ExpiredApplicationError
-    except ExpiredApplicationError:
-        raise ExpiredApplicationError
+        return 2
     except:
         pass
 
@@ -212,4 +210,12 @@ def greenhouse(link):
         
     driver.find_element(By.ID, 'submit_app').click()
 
-    driver.quit()
+    time.sleep(2)
+
+    try:
+        driver.find_element(By.ID, "application_confirmation")
+        driver.quit()
+        return 0
+    except:
+        driver.quit()
+        return 1
