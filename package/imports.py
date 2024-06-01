@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
@@ -21,6 +22,7 @@ from g4f.errors import RateLimitError
 import undetected_chromedriver as uc
 from datetime import datetime
 from package.exceptions import ExpiredApplicationError, RequiredWorkExperienceError
+import getopt, sys
 load_dotenv()
 answers = {
     "HDYHAU": "other",

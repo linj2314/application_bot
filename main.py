@@ -1,14 +1,29 @@
 from package import *
 
 def main():
-    scrape_links()
-    f = open("links.txt", "r")
-    links = f.readlines()
+    args = sys.argv[1:]
+
+    options = "s"
+
+    long_options = ["scrape"]
+
+    try:
+        arguments, values = getopt.getopt(args, options, long_options)
+
+        for currentArgument, currentValue in arguments:
+            if currentArgument in ["-s", "--scrape"]:
+                scrape_links()
+    except getopt.error as e:
+        print(str(e))
+        exit()
+
+    
+    f = open("links.txt", "r+")
     f1 = open("application_count.txt", "r+")
     f2 = open("not_applied_to.txt", "a")
     num_applied = int(f1.read())
     
-    for link in links:
+    while (link := f.readline()[:-1]) != "":
         try:
             if re.search("myworkdayjobs.com", link):
                 ret = workday(link)
@@ -34,8 +49,13 @@ def main():
                 pass
 
         except Exception as e:
-            print(e.message)
-            continue
+            print(e)
+
+        l = f.readlines()
+        f.seek(0)
+        f.truncate()
+        f.writelines(l[1:])
+        f.seek(0)
 
     f1.seek(0)
     f1.write(str(num_applied))

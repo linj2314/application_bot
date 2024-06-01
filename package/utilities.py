@@ -22,7 +22,7 @@ keywords = {
     "website": ["portfolio url", "website url", "website", "other website"],
     "resume": ["resume/cv", "resume-allowable-file-types"],
     "cover_letter": ["cover letter", "cover_letter-allowable-file-types"],
-    "transcript": ["transcript"],
+    "transcript": ["transcript", "transcript upload"],
     "skills": ["type to add skills"],
     "us_authorization": ['are you authorized to work in the us?'],
     "sponsorship": ['sponsorship'],
@@ -39,7 +39,7 @@ keywords = {
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name', 'race']
 }
 
-providers = [DuckDuckGo, Ecosia, Aichatos, Feedough]
+providers = [DuckDuckGo, Ecosia, Aichatos]
 provider_ind = 0
 
 def AI(prompt, choices = [], extras = []):

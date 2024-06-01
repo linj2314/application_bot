@@ -146,8 +146,13 @@ def workday(link):
             response = Response(prompt)
             if response in ["skip_fs", "country", "email"]:
                 continue
-
-            if i.get_attribute("aria-haspopup") == "listbox":
+            
+            if i.get_attribute("data-automation-id") == "select-files":
+                if response == "skip":
+                    return 1
+                else:
+                    i.send_keys(answers[response])
+            elif i.get_attribute("aria-haspopup") == "listbox":
                 if response == "phone_type":
                     i.send_keys(answers[response])
                     time.sleep(1)

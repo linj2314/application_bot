@@ -3,9 +3,7 @@ from package.utilities import *
 
 def lever(link):
     chrome_options = uc.ChromeOptions()
-
-    #chrome_options.add_argument('--remote-debugging-pipe')
-    #chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36")
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36")
 
     driver = uc.Chrome(options=chrome_options)
     driver.implicitly_wait(2)
@@ -22,10 +20,22 @@ def lever(link):
         
     driver.find_element(By.CSS_SELECTOR, "a[class*='postings-btn']").click()
 
+    try:
+        driver.find_element(By.CSS_SELECTOR, ".cc-dismiss").click()
+    except:
+        pass
+
     questions = driver.find_elements(By.CSS_SELECTOR, ".application-question")
-    skip = ['name', 'email', 'phone_number', 'location', 'linkedin', 'github']
 
     driver.find_element(By.ID, "resume-upload-input").send_keys(answers["resume"])
+    
+    try:
+        window_id = subprocess.check_output(['xdotool', 'search', '--name', 'Open File']).strip().decode('utf-8')
+        subprocess.run(['xdotool', 'windowactivate', window_id])
+        subprocess.run(['xdotool', 'key', 'Escape'])
+    except:
+        pass
+    
     time.sleep(7)
 
     extras = []
@@ -49,16 +59,17 @@ def lever(link):
             prompt = q.find_element(By.CSS_SELECTOR, ".application-label").text
         except:
             continue
-
+        
+        print(prompt)
         response = Response(prompt)
-        if response in skip or response == "skip_fs":
+        if response == "skip_fs":
             continue
         submission = 0
 
         try:
             #check if text input
             try:
-                i = q.find_element(By.CSS_SELECTOR, "input")
+                i = q.find_element(By.CSS_SELECTOR, "input[type='text']")
             except:
                 i = q.find_element(By.CSS_SELECTOR, "textarea")
 
@@ -74,12 +85,15 @@ def lever(link):
             try:
                 #check if mc input
                 mc = q.find_element(By.CSS_SELECTOR, "ul[data-qa='multiple-choice']")
+                ActionChains(driver).scroll_to_element(i).perform()
+                ActionChains(driver).scroll_by_amount(0, 300).perform()
                 if response == "skip":
                     choices = mc.find_elements(By.CSS_SELECTOR, 'li label')
                     choices_list = []
                     for c in choices:
                         choices_list.append(c.find_element(By.CSS_SELECTOR, 'span').text)
                     submission = AI(prompt, choices_list, extras)
+                    print(submission)
                     for c in choices:
                         if clean_str(c.find_element(By.CSS_SELECTOR, 'span').text) == clean_str(submission):
                             c.find_element(By.CSS_SELECTOR, 'input').click()
@@ -130,9 +144,9 @@ def lever(link):
 
     time.sleep(2)
 
-    driver.find_element(By.ID, "btn-submit").click()
+    driver.find_element(By.ID, "btn-submit").send_keys(Keys.ENTER)
 
-    time.sleep(1)
+    time.sleep(100)
 
     try:
         driver.find_element(By.CSS_SELECTOR, "[data-qa='msg-submit-success']")
@@ -146,4 +160,3 @@ def lever(link):
         except:
             driver.quit()
             return 1
-
