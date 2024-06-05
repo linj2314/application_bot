@@ -146,7 +146,16 @@ def lever(link):
 
     driver.find_element(By.ID, "btn-submit").send_keys(Keys.ENTER)
 
-    time.sleep(100)
+    time.sleep(1)
+    
+    try:
+        driver.find_element(By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")
+        el = WebDriverWait(driver, 1000).until_not(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")))
+        print("done waiting")
+    except Exception as e:
+        print(e)
+        print("passed")
+        pass
 
     try:
         driver.find_element(By.CSS_SELECTOR, "[data-qa='msg-submit-success']")

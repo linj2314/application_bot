@@ -39,7 +39,7 @@ keywords = {
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name', 'race']
 }
 
-providers = [DuckDuckGo, Ecosia, Aichatos]
+providers = [You, OpenaiChat, Liaobots, ChatForAi, Chatgpt4Online, Koala, DuckDuckGo, Ecosia, Aichatos]
 provider_ind = 0
 
 def AI(prompt, choices = [], extras = []):
@@ -60,18 +60,8 @@ def AI(prompt, choices = [], extras = []):
             messages=[{"role": "user", "content": content}]
         )
     except Exception as e:
-        if type(e) == RateLimitError:
-            provider_ind += 1
-            if provider_ind == len(providers):
-                provider_ind = 0
-            client = Client(provider = providers[provider_ind])
-            response = client.chat.completions.create(
-                model = "gpt-3.5-turbo",
-                messages=[{"role": "user", "content": content}]
-            )
-        else:
-            print(e)
-            exit()
+        provider_ind += 1
+        return AI(prompt, choices, extras)
 
     str = response.choices[0].message.content
     return str

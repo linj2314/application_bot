@@ -14,10 +14,7 @@ import time
 import re
 import subprocess
 from g4f.client import Client
-from g4f.Provider import DuckDuckGo
-from g4f.Provider import Aichatos
-from g4f.Provider import Feedough
-from g4f.Provider import Ecosia
+from g4f.Provider import DuckDuckGo, Aichatos, Ecosia, Koala, Chatgpt4Online, ChatForAi, Liaobots, OpenaiChat, You
 from g4f.errors import RateLimitError
 import undetected_chromedriver as uc
 from datetime import datetime
