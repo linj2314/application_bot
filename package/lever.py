@@ -60,7 +60,6 @@ def lever(link):
         except:
             continue
         
-        print(prompt)
         response = Response(prompt)
         if response == "skip_fs":
             continue
@@ -150,7 +149,7 @@ def lever(link):
     
     try:
         driver.find_element(By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")
-        el = WebDriverWait(driver, 1000).until_not(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")))
+        WebDriverWait(driver, 1000).until_not(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")))
         print("done waiting")
     except Exception as e:
         print(e)

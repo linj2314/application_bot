@@ -39,14 +39,28 @@ keywords = {
     "skip_fs": ['other website', 'gender', 'are you hispanic/latino', 'veteran status', 'disability status', 'phone extension', 'i have a preferred name', 'race']
 }
 
-providers = [You, OpenaiChat, Liaobots, ChatForAi, Chatgpt4Online, Koala, DuckDuckGo, Ecosia, Aichatos]
-provider_ind = 0
+def AI2(prompt, choices = [], extras = []):
+    global AI_PROMPT
+    ai_prompt = AI_PROMPT
+    for x in extras:
+        ai_prompt += x
+    if not choices:
+        content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". Respond with only the answer and no other words or punctuation.'
+    else:
+        choices = '; '.join(choices)
+        content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
+    try:
+        response = gpt(content)
+    except Exception as e:
+        print(e)
+        exit()
+
+    return response
 
 def AI(prompt, choices = [], extras = []):
+    client = Client(You)
     global AI_PROMPT
-    global provider_ind
     ai_prompt = AI_PROMPT
-    client = Client(provider = providers[provider_ind])
     for x in extras:
         ai_prompt += x
     if not choices:
@@ -56,15 +70,13 @@ def AI(prompt, choices = [], extras = []):
         content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
     try:
         response = client.chat.completions.create(
-            model = "gpt-3.5-turbo",
+            model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": content}]
         )
     except Exception as e:
-        provider_ind += 1
-        return AI(prompt, choices, extras)
-
-    str = response.choices[0].message.content
-    return str
+        print(e)
+        exit()
+    return(response.choices[0].message.content)
 
 def Response(prompt):
     if not prompt:
@@ -132,3 +144,48 @@ def scrape_links():
 
     f1.close()
     f2.close()
+
+def gpt(content):
+    def get_shadow_root(element):
+        return driver.execute_script('return arguments[0].shadowRoot', element)
+
+    chrome_options = Options()
+
+    chrome_options.add_argument('--remote-debugging-pipe')
+    chrome_options.add_argument('--headless')
+
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.implicitly_wait(2)
+
+    driver.get("https://bing.com/chat")
+
+    sd = driver.find_element(By.CSS_SELECTOR, "cib-serp")
+    sd2 = get_shadow_root(sd).find_element(By.CSS_SELECTOR, "cib-action-bar")
+    sd3 = get_shadow_root(sd2).find_element(By.CSS_SELECTOR, "cib-text-input")
+    sd4 = get_shadow_root(sd3).find_element(By.ID, "searchbox")
+
+    content = re.sub('\n', '', content)
+    sd4.send_keys(content + "\n")
+
+    sd3 = get_shadow_root(sd2).find_element(By.CSS_SELECTOR, "cib-typing-indicator")
+    sd4 = get_shadow_root(sd3).find_element(By.CSS_SELECTOR, "span")
+
+    while True:
+        if sd4.text == "Response stopped":
+            break
+        time.sleep(0.5)
+
+    sd2 = get_shadow_root(sd).find_element(By.CSS_SELECTOR, "cib-conversation")
+    sd3 = get_shadow_root(sd2).find_element(By.CSS_SELECTOR, "cib-chat-turn")
+    sd4 = get_shadow_root(sd3).find_element(By.CSS_SELECTOR, "cib-message-group:nth-of-type(2)")
+    sd5 = get_shadow_root(sd4).find_element(By.CSS_SELECTOR, "cib-message")
+    sd6 = get_shadow_root(sd5).find_element(By.CSS_SELECTOR, "cib-shared")
+
+    main_element = sd6.find_element(By.CSS_SELECTOR, ".ac-textBlock")
+
+    driver.execute_script("arguments[0].querySelectorAll('sup').forEach(function(el) { el.style.display = 'none'; });", main_element)
+    response = main_element.text
+
+    driver.quit()
+
+    return response
