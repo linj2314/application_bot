@@ -19,15 +19,15 @@ def greenhouse(link):
     except:
         pass
 
+    '''
     text_inputs = driver.find_elements(By.CSS_SELECTOR, "input[type='text']:not([class])")
     dropdown_inputs_1 = driver.find_elements(By.CSS_SELECTOR, "div.select2-container")
     dropdown_inputs_2 = driver.find_elements(By.TAG_NAME, 'select')
     file_inputs = driver.find_elements(By.CSS_SELECTOR, "button[data-source='attach']")
     checkbox_questions = driver.find_elements(By.CSS_SELECTOR, "label label:nth-of-type(1) input[type='checkbox']")
+    '''
 
-    skip_dropdown_2 = False
-    if len(dropdown_inputs_1) > 0:
-        skip_dropdown_2 = True
+    fields = driver.find_elements(By.CSS_SELECTOR, ".field")
 
     try:
         driver.find_element(By.CSS_SELECTOR, "input[aria-label='Education Start Month']").send_keys(answers["start_month"])
@@ -42,19 +42,19 @@ def greenhouse(link):
     company_name = company_name[1]
     role_name = driver.find_element(By.CSS_SELECTOR, "h1[class='app-title']").text
 
-    for t in text_inputs:
+    def text_input(t):
         if t.get_attribute("name") == "job_application[location]":
             t.send_keys(answers["location"])
             time.sleep(0.5)
             t.send_keys(Keys.DOWN)
             t.send_keys(Keys.ENTER)
-            continue
+            return
         prompt = t.find_element(By.XPATH, '..').text
         if not prompt:
-            continue
+            return
         response = Response(prompt)
         if response == 'skip_fs':
-            continue
+            return
         if response == 'skip':
             t.send_keys(AI(prompt))
         else:
@@ -63,15 +63,15 @@ def greenhouse(link):
             except:
                 pass
 
-    for d in dropdown_inputs_1:
+    def dropdown_input_1(d):
         parent = d.find_element(By.XPATH, '..')
         prompt = parent.text
         prompt = prompt.split('\n')[0]
         if not prompt:
-            continue
+            return
         response = Response(prompt)
         if response == 'skip_fs':
-            continue
+            return
         try:
             parent.find_element(By.CSS_SELECTOR, "select")
             d.click()
@@ -129,75 +129,87 @@ def greenhouse(link):
             input.send_keys(Keys.ENTER)
         
 
-    if not skip_dropdown_2:
-        for d in dropdown_inputs_2:
-            sd = Select(d)
-            prompt = d.find_element(By.XPATH, '..').text
-            response = Response(prompt)
-            if response == "skip_fs":
-                continue
-            if response == "skip":
-                choices = []
-                for o in d.find_elements(By.CSS_SELECTOR, "option"):
-                    choices.append(o.text)
-                sd.select_by_visible_text(AI(prompt, choices))
-            else:
-                ind = 0
-                found = False
-                choices = []
-                for o in d.find_elements(By.CSS_SELECTOR, "option"):
-                    choices.append(o.text)
-                    if clean_str(o.text) == answers[response]:
-                        sd.select_by_index(ind)
-                        found = True
-                        break
-                    ind += 1
-                if not found:
-                    sd.select_by_visible_text(AI(prompt, choices))
-                    
-    for c in checkbox_questions:
-        question = c.find_element(By.XPATH, '..//..')
-        prompt = question.text.split('\n')[0]
-        if clean_str(prompt) == "personal data":
-            c.click()
-            continue
+    def dropdown_input_2(d):
+        sd = Select(d)
+        prompt = d.find_element(By.XPATH, '..').text
         response = Response(prompt)
         if response == "skip_fs":
-            continue
+            return
         if response == "skip":
             choices = []
-            boxes = question.find_elements(By.CSS_SELECTOR, "label")
+            for o in d.find_elements(By.CSS_SELECTOR, "option"):
+                choices.append(o.text)
+            sd.select_by_visible_text(AI(prompt, choices))
+        else:
+            ind = 0
+            found = False
+            choices = []
+            for o in d.find_elements(By.CSS_SELECTOR, "option"):
+                choices.append(o.text)
+                if clean_str(o.text) == answers[response]:
+                    sd.select_by_index(ind)
+                    found = True
+                    break
+                ind += 1
+            if not found:
+                sd.select_by_visible_text(AI(prompt, choices))
+                    
+    def checkbox_question(c):
+        prompt = c.text.split('\n')[0]
+        if clean_str(prompt) == "personal data":
+            c.click()
+            return
+        response = Response(prompt)
+        if response == "skip_fs":
+            return
+        if response == "skip":
+            choices = []
+            boxes = c.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+            if len(boxes) == 1:
+                try:
+                    c.find_element(By.CSS_SELECTOR, ".asterisk")
+                    boxes[0].click()
+                    return
+                except:
+                    pass
             for b in boxes:
-                choices.append(b.text)
+                choices.append(b.find_element(By.XPATH, "..").text)
             submission = AI(prompt, choices)
-            for b in boxes:
-                if b.text.strip() == submission:
-                    b.find_element(By.CSS_SELECTOR, "input").click()
+            for ind, b in enumerate(boxes):
+                if clean_str(choices[ind]) == clean_str(submission):
+                    b.click()
                     break
         else:
-            boxes = question.find_elements(By.CSS_SELECTOR, "label")
+            boxes = c.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+            if len(boxes) == 1:
+                try:
+                    c.find_element(By.CSS_SELECTOR, ".asterisk")
+                    boxes[0].click()
+                    return
+                except:
+                    pass
             found = False
             choices = []
             submission = answers[response]
             for b in boxes:
-                choices.append(b.text)
-                choice = clean_str(b.text)
-                if submission == choice:
-                    b.find_element(By.CSS_SELECTOR, "input").click()
+                choices.append(b.find_element(By.XPATH, "..").text)
+                choice = choices[len(choices) - 1]
+                if clean_str(submission) == clean_str(choice):
+                    b.click()
                     found = True
                     break
             if not found:
                 submission = AI(prompt, choices)
-                for b in boxes:
-                    if b.text == submission:
-                        b.find_element(By.CSS_SELECTOR, "input").click()
+                for ind, b in enumerate(boxes):
+                    if clean_str(choices[ind]) == clean_str(submission):
+                        b.click()
                         break
 
-    for f in file_inputs:
+    def file_input(f):
         prompt = f.get_attribute('aria-describedby')
         response = Response(prompt)
         if response == "skip_fs":
-            continue
+            return
         if response == "cover_letter":
             CL_Write(company_name, role_name, True)
         f.click()
@@ -207,7 +219,52 @@ def greenhouse(link):
         time.sleep(0.5)
         subprocess.Popen(['xdotool', 'key', 'Return'])
         time.sleep(1)
+
+
+    for field in fields:
+        try:
+            parent = field.find_element(By.XPATH, "./..")
+            if parent.id == "dev-fields":
+                continue
+        except:
+            pass
+
+        try:
+            i = field.find_element(By.CSS_SELECTOR, "input[type='text']:not([class])")
+            text_input(i)
+            continue
+        except:
+            pass
+
+        try:
+            d = field.find_element(By.CSS_SELECTOR, "div.select2-container")
+            dropdown_input_1(d)
+            continue
+        except:
+            pass
         
+        try:
+            d = field.find_element(By.TAG_NAME, 'select')
+            dropdown_input_2(d)
+            continue
+        except:
+            pass
+
+        try:
+            f = field.find_element(By.CSS_SELECTOR, "button[data-source='attach']")
+            file_input(f)
+            continue
+        except:
+            pass
+        
+
+        try:
+            c = field.find_element(By.CSS_SELECTOR, "input[type='checkbox']")
+            checkbox_question(field)
+            continue
+        except:
+            pass
+
     driver.find_element(By.ID, 'submit_app').click()
 
     time.sleep(2)
