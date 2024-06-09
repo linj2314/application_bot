@@ -13,7 +13,7 @@ keywords = {
     "email": ["email"],
     "phone_number": ["phone number", "phone"],
     "phone_type": ["phone device type"],
-    "country_code": ["country phone code"], 
+    "country_code": ["country phone code", "country/region phone code"], 
     "school": ["school", "university", "school or university"],
     "degree": ["degree"],
     "major": ["field of study", "major", "discipline"],
@@ -57,7 +57,7 @@ def AI2(prompt, choices = [], extras = []):
 
     return response
 
-def AI(prompt, choices = [], extras = []):
+def AI(prompt, choices = [], extras = [], multiple = False):
     client = Client(You)
     global AI_PROMPT
     ai_prompt = AI_PROMPT
@@ -66,8 +66,12 @@ def AI(prompt, choices = [], extras = []):
     if not choices:
         content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". Respond with only the answer and no other words or punctuation.'
     else:
-        choices = '; '.join(choices)
-        content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
+        if multiple:
+            choices = '; '.join(choices)
+            content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. You may select multiple choices. Respond with only the correct choices separated by semicolons and no other words or punctuation.'
+        else:
+            choices = '; '.join(choices)
+            content = ai_prompt + 'Given this information, how would you fill out this question: ' + '"' + prompt + '". These are the possible choices (separated by semicolons) to choose from: ' + choices + '. Respond with only the correct choice and no other words or punctuation.'
     try:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",

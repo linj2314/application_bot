@@ -84,10 +84,10 @@ def workday(link):
                     raise RequiredWorkExperienceError()
 
             try:
-                driver.find_element(By.CSS_SELECTOR, "input[data-automation-id='school']")
-            except:
                 driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Add Education"]').send_keys(Keys.ENTER)
                 time.sleep(1)
+            except:
+                pass
 
         if page > 2:
             try:
@@ -99,11 +99,22 @@ def workday(link):
 
         
         inputs = driver.find_elements(By.XPATH, '//*[starts-with(@id, "input-")]')
+        skips = 0
+
         for i in inputs:
+            if skips > 0:
+                skips -= 1
+                continue
+
             try:
                 _ = i.get_attribute("id")
             except StaleElementReferenceException:
                 continue
+
+            if i.get_attribute("aria-readonly") == "true":
+                continue
+
+            print(i.get_attribute("id"))
 
             if page == 2:
                 if i.get_attribute("data-automation-id") == "select-files":
@@ -122,16 +133,17 @@ def workday(link):
             
             if page > 2:
                 if i.get_attribute("data-automation-id") == "agreementCheckbox":
+                    ActionChains(driver).scroll_to_element(i).perform()
+                    ActionChains(driver).scroll_by_amount(0, 100).perform() 
                     driver.find_element(By.CSS_SELECTOR, "label[for='" + i.get_attribute("id") + "']").click()
                     continue
-                if i.get_attribute("aria-label") == "Day":
-                    i.send_keys(datetime.today().strftime('%d'))
+                if i.get_attribute('data-automation-id') == 'dateInputWrapper' or 'display' in i.get_attribute("id"):
                     continue
-                elif i.get_attribute("aria-label") == "Month":
-                    i.send_keys(datetime.today().strftime('%m'))
-                    continue
-                elif i.get_attribute("aria-label") == "Year":
-                    i.send_keys(datetime.today().strftime('%Y'))
+                if i.get_attribute("aria-label") == "Month":
+                    date = datetime.today().strftime('%m') + datetime.today().strftime('%d') + datetime.today().strftime('%Y')
+                    i.send_keys(date)
+                    driver.find_element(By.CSS_SELECTOR, "body").click()
+                    skips = 6
                     continue
 
             try:
@@ -153,6 +165,8 @@ def workday(link):
                 else:
                     i.send_keys(answers[response])
             elif i.get_attribute("aria-haspopup") == "listbox":
+                ActionChains(driver).scroll_to_element(i).perform()
+                ActionChains(driver).scroll_by_amount(0, 100).perform() 
                 if response == "phone_type":
                     i.send_keys(answers[response])
                     time.sleep(1)
@@ -161,14 +175,26 @@ def workday(link):
                     time.sleep(1)
                     if clean_str(i.text) != "home":
                         i.send_keys("cell")
-                    continue    
+                    continue
+                if response == "HDYHAU":
+                    i.send_keys(answers[response])
+                    time.sleep(1)
+                    if clean_str(i.text) != answers[response]:
+                        i.send_keys("linkedin")
+                    time.sleep(1)
+                    if clean_str(i.text) != "linkedin":
+                        i.send_keys("indeed")
+                    continue      
                 if response == "skip":
                     i.send_keys(Keys.ENTER)
                     choices = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
                     choices = choices[1:]
                     choices_list = []
                     for c in choices:
-                        choices_list.append(c.text)
+                        try:
+                            choices_list.append(c.text)
+                        except:
+                            pass
                     i.click()
                     i.click()
                     time.sleep(0.25)
@@ -177,7 +203,7 @@ def workday(link):
                     submission = answers[response]
                 if i.text == submission:
                     continue
-                i.send_keys(submission)
+                i.send_keys(clean_str(submission))
                 try:
                     options = driver.find_element(By.CSS_SELECTOR, 'div[class*="wd-popup"]').find_elements(By.CSS_SELECTOR, "ul li")
                     for o in options:
@@ -205,6 +231,25 @@ def workday(link):
                             driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='activeListContainer'] div div").find_element(By.CSS_SELECTOR, "input").click()
                         except:
                             pass
+                        try:
+                            driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='formField-sourcePrompt']").find_element(By.CSS_SELECTOR, "div[data-automation-id='DELETE_charm']")
+                            driver.find_element(By.TAG_NAME, "body").click()
+                        except:
+                            i.clear()
+                            i.send_keys("indeed")
+                            i.send_keys(Keys.ENTER)
+                            try:
+                                driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='activeListContainer'] div div").find_element(By.CSS_SELECTOR, "input").click()
+                            except:
+                                pass
+                    continue
+                if response == "school":
+                    i.send_keys(answers["school2"])
+                    i.send_keys(Keys.ENTER)
+                    try:
+                        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='activeListContainer'] div div").find_element(By.CSS_SELECTOR, "input").click()
+                    except:
+                        pass
                     continue
                 submission = answers[response]
                 submission = submission.split(',')
@@ -232,9 +277,19 @@ def workday(link):
                         c.click()
                         break
             elif i.tag_name == 'fieldset':
-                #TODO implement fieldset handling (multiple choice but different format)
-                print("fieldset encountered")
-                exit()
+                ActionChains(driver).scroll_to_element(i).perform()
+                ActionChains(driver).scroll_by_amount(0, 100).perform() 
+                choices = i.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+                choices_text = []
+                for c in choices:
+                    choices_text.append(c.find_element(By.XPATH, "./../..").text)
+                submission = AI(prompt, choices=choices_text, multiple=True)
+                submission = submission.split(";")
+                print(submission)
+                for s in submission:
+                    for ind, choice in enumerate(choices):
+                        if clean_str(choices_text[ind]) == clean_str(s):
+                            choice.click()
             else:
                 if response == "skip":
                     submission = AI(prompt)
@@ -252,7 +307,7 @@ def workday(link):
         page += 1
 
     try:
-        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='congratulationsPopup]")
+        driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='congratulationsPopup']")
         driver.quit()
         return 0
     except:

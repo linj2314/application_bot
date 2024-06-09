@@ -35,6 +35,7 @@ answers = {
     "country_code": os.getenv("COUNTRY_CODE"), 
     "phone_number": os.getenv("PHONE_NUMBER"),
     "school": os.getenv("SCHOOL"),
+    "school2": os.getenv("SCHOOL2"),
     "degree": os.getenv("DEGREE"),
     "major": os.getenv("MAJOR"),
     "GPA": os.getenv("GPA"),

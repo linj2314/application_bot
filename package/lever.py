@@ -47,12 +47,9 @@ def lever(link):
     location = "This job is located in " + location + ". "
     extras.append(location)
 
-    skips = 6
+    skip_responses = ["name", "pronouns", "email", "phone_number", "location", "resume"]
 
     for q in questions:
-        if skips > 0:
-            skips -= 1
-            continue
         if 'awli-application-row' in q.get_attribute('class'):
             continue
         try:
@@ -61,12 +58,13 @@ def lever(link):
             continue
         
         response = Response(prompt)
-        if response == "skip_fs":
+        if response == "skip_fs" or response in skip_responses:
             continue
         submission = 0
 
         try:
             #check if text input
+            print("1")
             try:
                 i = q.find_element(By.CSS_SELECTOR, "input[type='text']")
             except:
@@ -83,6 +81,7 @@ def lever(link):
         except:
             try:
                 #check if mc input
+                print("2")
                 mc = q.find_element(By.CSS_SELECTOR, "ul[data-qa='multiple-choice']")
                 ActionChains(driver).scroll_to_element(i).perform()
                 ActionChains(driver).scroll_by_amount(0, 300).perform()
@@ -92,7 +91,6 @@ def lever(link):
                     for c in choices:
                         choices_list.append(c.find_element(By.CSS_SELECTOR, 'span').text)
                     submission = AI(prompt, choices_list, extras)
-                    print(submission)
                     for c in choices:
                         if clean_str(c.find_element(By.CSS_SELECTOR, 'span').text) == clean_str(submission):
                             c.find_element(By.CSS_SELECTOR, 'input').click()
@@ -106,7 +104,6 @@ def lever(link):
                             found = True
                             break
                     if found == False:
-                        print("choices list: " + choices_list)
                         submission = AI(prompt, choices_list, extras)
                         for c in choices:
                             if clean_str(c.find_element(By.CSS_SELECTOR, 'span').text) == clean_str(submission):
@@ -115,7 +112,8 @@ def lever(link):
             except:
                 try:
                     #check if dropdown input
-                    s = Select(q.find_element(By.TAG_NAME, "select"))
+                    print("3")
+                    s = Select(q.find_element(By.CSS_SELECTOR, "select:not([data-qa])"))
                     if response == "skip":
                         choices_list = []
                         for o in s.options:
@@ -134,7 +132,33 @@ def lever(link):
                                 break
                             ind += 1
                 except:
-                    continue
+                    try:
+                        #check if checkbox input
+                        print("4")
+                        _ = q.find_element(By.CSS_SELECTOR, "input[type='checkbox']")
+                        choices = q.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+
+                        choices_text = []
+                        for c in choices:
+                            choices_text.append(c.find_element(By.XPATH, "./..").text)
+
+                        submission = AI(prompt, choices=choices_text, multiple=True)
+                        for s in submission.split(";"):
+                            for ind, choice in enumerate(choices):
+                                if clean_str(choices_text[ind]) == clean_str(s):
+                                    choice.click()
+                    except:
+                        try:
+                            #check if search input
+                            print("5")
+                            q.find_element(By.CSS_SELECTOR, ".select2-selection").click()
+                            if response == "skip":
+                                driver.find_element(By.CSS_SELECTOR, ".select2-search__field").send_keys(AI(prompt))
+                            else:
+                                driver.find_element(By.CSS_SELECTOR, ".select2-search__field").send_keys(answers[response])
+                            driver.find_element(By.CSS_SELECTOR, ".select2-results__option").click()
+                        except:
+                            continue
 
     try:
         driver.find_element(By.ID, "additional-information").send_keys(CL_Write(company_name, role_name))
@@ -150,10 +174,8 @@ def lever(link):
     try:
         driver.find_element(By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")
         WebDriverWait(driver, 1000).until_not(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "[title='Widget containing checkbox for hCaptcha security challenge']")))
-        print("done waiting")
     except Exception as e:
         print(e)
-        print("passed")
         pass
 
     try:
